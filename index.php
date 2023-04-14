@@ -1,7 +1,7 @@
 <?php include '_header.php' ?>
 
     <div class="container d-flex justify-content-center">
-        <div class="row align-items-center" style="width: 1000px;border: 2px solid mediumpurple; border-radius: 10px;">
+        <div class="row align-items-center bg-light" style="width: 1000px;border: 2px solid mediumpurple; border-radius: 10px;">
             <div class="col" style="padding: 0">
                 <img class="img-fluid" src="img/form-cover.jpg" style="object-fit: cover; border-bottom-left-radius: 10px; border-top-left-radius: 10px;" alt="Home">
             </div>
@@ -17,6 +17,10 @@
                         <input type="password" class="form-control" id="password" name="password">
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <a class="mt-2 d-block link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
+                       href="register.php">
+                        Register
+                    </a>
                 </form>
             </div>
         </div>

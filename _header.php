@@ -1,4 +1,5 @@
 <?php
+/*
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -8,7 +9,7 @@
 
     if (!$conn) {
         die("Could not connect to database: " . mysqli_connect_error());
-    }
+    }*/
 ?>
 <!doctype html>
 <html lang="en">
@@ -26,6 +27,11 @@
         body {
             display: grid;
             place-items: center;
+            background-image: url('img/bg.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: center;
         }
     </style>
 </head>
