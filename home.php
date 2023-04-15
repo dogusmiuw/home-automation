@@ -7,7 +7,6 @@
                     <div class="card-body">
                         <div class="list-group">
                             <button type="button" class="list-group-item list-group-item-action active">Rooms</button>
-                            <button type="button" class="list-group-item list-group-item-action">Access</button>
                             <button type="button" class="list-group-item list-group-item-action">Contact</button>
                             <button type="button" class="list-group-item list-group-item-action">About</button>
                             <button type="button" class="list-group-item list-group-item-action">Log out</button>

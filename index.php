@@ -1,8 +1,9 @@
 <?php include '_header.php' ?>
 <?php
-    $users = array();
-    $users["producer@mail.com"] = "12345";
-    $users["consumer@mail.com"] = "12345";
+    $users = array(
+        array("consumer","consumer@mail.com","12345"),
+        array("producer","producer@mail.com","12345")
+    );
 
     $status = "";
 
@@ -23,12 +24,20 @@
                 <h1 class="text-center">Welcome</h1>
                 <form style="width: 80%" action="" method="POST">
                     <div class="mb-3">
+                        <label for="user_type" class="form-label">User type</label>
+                        <select class="form-select bg-light" aria-label="User type" id="user_type" name="user_type" required>
+                            <option selected>Select user type</option>
+                            <option value="consumer">Consumer</option>
+                            <option value="producer">Producer</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email">
+                        <input type="email" class="form-control" id="email" name="email" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password">
+                        <input type="password" class="form-control" id="password" name="password" required>
                     </div>
                     <button type="submit" class="btn btn-primary w-100">Login</button>
                     <p class="text-danger"><?= $status ?></p>
