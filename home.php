@@ -6,10 +6,9 @@
                 <div class="card"> <!-- nav -->
                     <div class="card-body">
                         <div class="list-group">
-                            <button type="button" class="list-group-item list-group-item-action active">Rooms</button>
-                            <button type="button" class="list-group-item list-group-item-action">Contact</button>
-                            <button type="button" class="list-group-item list-group-item-action">About</button>
-                            <button type="button" class="list-group-item list-group-item-action">Log out</button>
+                            <a href="home.php" class="btn btn-light list-group-item list-group-item-action active" role="button">Rooms</a>
+                            <a href="about.php" class="btn btn-light list-group-item list-group-item-action" role="button">About</a>
+                            <a href="index.php" class="btn btn-light list-group-item list-group-item-action text-danger" role="button">Log out</a>
                         </div>
                     </div>
                 </div> <!-- nav end-->

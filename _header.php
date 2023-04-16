@@ -26,8 +26,7 @@
         }
 
         body {
-            display: grid;
-            place-items: center;
+            padding-top: 200px;
             background-image: url('img/bg.jpg');
             background-size: cover;
             background-attachment: fixed;

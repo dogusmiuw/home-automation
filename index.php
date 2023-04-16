@@ -8,10 +8,15 @@
     $status = "";
 
     if($_SERVER["REQUEST_METHOD"] === "POST"){
-        if(array_key_exists($_POST["email"], $users) && $_POST["password"] == $users[$_POST["email"]]){
-            header("Location: home.php");
-        } else {
-            $status = "E-mail or password is incorrect.";
+        for($i = 0; $i < count($users); $i++){
+            if(in_array($_POST["email"] ,$users[$i]) &&
+                $_POST["user_type"] == $users[$i][0] &&
+                $_POST["password"] == $users[$i][2])
+            {
+                header("Location: home.php");
+            } else {
+                $status = "Login information is incorrect.";
+            }
         }
     }
 ?>
