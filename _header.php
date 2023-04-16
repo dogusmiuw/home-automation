@@ -26,7 +26,7 @@
         }
 
         body {
-            padding-top: 200px;
+            padding-top: 150px;
             background-image: url('img/bg.jpg');
             background-size: cover;
             background-attachment: fixed;

@@ -1,4 +1,11 @@
 <?php include '_header.php' ?>
+    <style>
+        body{
+            padding-top: unset;
+            display:grid;
+            place-items: center;
+        }
+    </style>
 <?php
     $users = array(
         array("consumer","consumer@mail.com","12345"),

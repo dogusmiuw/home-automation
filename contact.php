@@ -10,9 +10,9 @@
                                role="button">Rooms</a>
                             <a href="devices.php" class="btn btn-light list-group-item list-group-item-action"
                                role="button">Devices</a>
-                            <a href="contact.php" class="btn btn-light list-group-item list-group-item-action"
+                            <a href="contact.php" class="btn btn-light list-group-item list-group-item-action active"
                                role="button">Contact</a>
-                            <a href="about.php" class="btn btn-light list-group-item list-group-item-action active"
+                            <a href="about.php" class="btn btn-light list-group-item list-group-item-action"
                                role="button">About</a>
                             <a href="index.php" class="btn btn-light list-group-item list-group-item-action text-danger"
                                role="button">Log out</a>
@@ -23,11 +23,13 @@
             <div class="col-9">
                 <div class="card"> <!-- main -->
                     <div class="card-body">
-                        <h1>About</h1>
+                        <h1>Contact</h1>
                         <div class="row">
-                            <p><span class="fw-semibold">Application Version:</span> 2.1</p>
+                            <p><span class="fw-semibold">Consumer:</span> Chloe Price<br>
+                                <span class="fw-semibold">Address:</span> Railroad Street, Arcadia Bay, Oregon
+                            </p>
                             <div>
-                                <a href="#" class="btn btn-primary">Report Bug</a>
+                                <a href="#" class="btn btn-primary">Call</a> <a href="#" class="btn btn-primary">Send E-mail</a>
                             </div>
                         </div>
                     </div>
