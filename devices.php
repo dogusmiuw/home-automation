@@ -26,8 +26,8 @@
                         <h1>Devices</h1>
                         <div class="row mb-3">
                             <div>
-                                <a href="#" class="btn btn-primary active"><i class="fa-solid fa-plus"></i> Add item</a>
-                                <a href="#" class="btn btn-danger active"><i class="fa-solid fa-minus"></i> Remove item</a>
+                                <a href="#" class="btn btn-primary active"><i class="fa-solid fa-plus"></i> Add device</a>
+                                <a href="#" class="btn btn-danger active"><i class="fa-solid fa-minus"></i> Remove device</a>
                             </div>
                         </div>
                         <div class="row">
