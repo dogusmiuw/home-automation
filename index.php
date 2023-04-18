@@ -20,7 +20,7 @@
                 $_POST["user_type"] == $users[$i][0] &&
                 $_POST["password"] == $users[$i][2])
             {
-                header("Location: home.php");
+                $_POST["user_type"] == "producer" ? header("Location: home.php") : header("Location: consumer/home.html");
             } else {
                 $status = "Login information is incorrect.";
             }
