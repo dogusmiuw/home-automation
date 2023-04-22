@@ -61,5 +61,5 @@
             </div>
         </div>
     </div>
-
+<script src="js/loginFormAutoFill.js"></script>
 <?php include '_footer.php' ?>
