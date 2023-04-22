@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400;1,500&display=swap%27");
 
 :root {
+  --switch-height: 75px;
+  --switch-padding: 8px;
+  --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
+  --slider-height: calc(var(--switch-height) - var(--switch-padding));
+  --slider-on: calc(var(--switch-height) - var(--switch-padding));
   --clr-graylight: #cfd8dc;
   --clr-graymed: #90a4ae;
 
@@ -771,7 +776,8 @@ ul li ul li a {
   }
 
   section{
-      padding-top: 5rem;
+      padding: inherit;
+      padding-top: 3rem;
   }
 
   .footer .box-container .box:last-child{
@@ -797,9 +803,15 @@ ul li ul li a {
   .plan{
     width: calc(45% - 2rem);
   }
-
 }
 @media (max-width:52rem){
+  * {
+    --switch-height: 30px;
+    --switch-padding: 4px;
+    --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
+    --slider-height: calc(var(--switch-height) - var(--switch-padding));
+    --slider-on: calc(var(--switch-height) - var(--switch-padding));
+  }
   .plan{
     width: calc(45% - 2rem);
   }
@@ -814,4 +826,68 @@ ul li ul li a {
   .plan{
     width: 90%;
   }
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: var(--slider-height);
+  width: var(--slider-height);
+  left: calc(var(--switch-padding) / 2);
+  bottom: calc(var(--switch-padding) / 2);
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #9c7853;
+}
+
+
+input:checked+.slider:before {
+  transform: translateX(var(--slider-on));
+}
+
+.slider.round {
+  border-radius: var(--slider-height);
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.livLights h3{
+margin-top: 3rem;
+font-size: 3rem;
+}
+.slidebutton{
+margin-top: 1rem;
 }
