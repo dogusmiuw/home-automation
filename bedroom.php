@@ -1,0 +1,63 @@
+<?php include '_header.php' ?>
+<?php include '_navbar.php' ?>
+<style>
+    .deviceInRoomCard:hover {
+        cursor: pointer;
+    }
+</style>
+<div class="container">
+    <div class="row container-row mt-5">
+
+        <!--            <div class="col-9">-->
+        <div class="card"> <!-- main -->
+            <div class="card-body">
+                <h1>Bedroom</h1>
+                <div class="row mb-3">
+                    <div class="col-3 mb-3">
+                        <div class="card deviceInRoomCard">
+                            <div class="card-body">
+                                <h4>Light</h4>
+                                <p class="text-center">
+                                    <i id="light" class="text-warning fa-regular fa-lightbulb"
+                                        style="font-size:7rem;"></i>
+                                </p>
+                                <p class="text-center">
+                                    <span id="lightStatus" class="fs-5">Off</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mb-3">
+                        <div class="card deviceInRoomCard">
+                            <div class="card-body">
+                                <h4>AC</h4>
+                                <p class="text-center">
+                                    <i id="ac" class="text-secondary fa-solid fa-fan" style="font-size:7rem;"></i>
+                                </p>
+                                <p class="text-center">
+                                    <span id="acStatus" class="fs-5">Off</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3 mb-3">
+                        <div class="card deviceInRoomCard">
+                            <div class="card-body">
+                                <h4>Windows</h4>
+                                <p class="text-center">
+                                    <i id="windows" class="text-primary fa-solid fa-table-cells-large"
+                                        style="font-size:7rem;"></i>
+                                </p>
+                                <p class="text-center">
+                                    <span id="windowsStatus" class="fs-5">Open</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- main end -->
+        <!--            </div>-->
+    </div>
+</div>
+<?php include '_footer.php' ?>

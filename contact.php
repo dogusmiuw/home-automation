@@ -10,7 +10,8 @@
                                 <span class="fw-semibold">Address:</span> Railroad Street, Arcadia Bay, Oregon
                             </p>
                             <div>
-                                <a href="#" class="btn btn-primary contact-btn"><i class="fa-solid fa-phone"></i> Call</a> <a href="#" class="btn btn-primary contact-btn"><i class="fa-solid fa-envelope"></i> Send E-mail</a>
+                                <a href="#" class="btn btn-primary contact-btn"><i class="fa-solid fa-phone"></i> Call</a>
+                                <a href="mailto:consumer@mail.com" class="btn btn-primary contact-btn"><i class="fa-solid fa-envelope"></i> Send E-mail</a>
                             </div>
                         </div>
                     </div>
