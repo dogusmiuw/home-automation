@@ -31,7 +31,7 @@ die("Could not connect to database: " . mysqli_connect_error());
         }
 
         body {
-            background-image: url('img/bg.jpg');
+            background-image: url('consumer/images/background.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-repeat: no-repeat;
