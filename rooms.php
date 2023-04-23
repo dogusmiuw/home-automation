@@ -1,5 +1,15 @@
 <?php include '_header.php' ?>
 <?php include '_navbar.php' ?>
+<style>
+
+        .col-3.mb-3 > a > .card:hover{
+            scale: 1.05;
+            transition: 300ms;
+        }
+        .col-3.mb-3 > a > .card:not(:hover){
+            transition: 300ms;
+        }
+</style>
 <div class="container">
     <div class="row container-row mt-5">
 

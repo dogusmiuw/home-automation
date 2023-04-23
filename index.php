@@ -49,9 +49,14 @@ die("Could not connect to database: " . mysqli_connect_error());
             width: 80%;
         }
 
+        .img-fluid {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
         .login-div {
             width: 1000px;
-            border: 2px solid mediumpurple;
+            border: 2px solid #846545;
             border-radius: 10px;
         }
 
@@ -78,8 +83,7 @@ die("Could not connect to database: " . mysqli_connect_error());
             .img-fluid {
                 width: 100%;
                 height: 250px;
-                border-top-left-radius: 10px;
-                border-top-right-radius: 10px;
+                border-bottom-left-radius: 0;
                 margin-bottom: 1rem;
             }
             form {
@@ -91,10 +95,6 @@ die("Could not connect to database: " . mysqli_connect_error());
 </head>
 
 <body>
-    <style>
-       
-        
-    </style>
 <?php
 $users = array(
     array("consumer", "consumer@mail.com", "12345"),
@@ -130,7 +130,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <form action="" method="POST">
                     <div class="mb-3">
                         <label for="user_type" class="form-label">User type</label>
-                        <select class="form-select bg-light" aria-label="User type" id="user_type" name="user_type" required>
+                        <select class="form-select" style="background-color: white !important;" aria-label="User type" id="user_type" name="user_type" required>
                             <option selected>Select user type</option>
                             <option value="consumer">Consumer</option>
                             <option value="producer">Producer</option>
@@ -138,16 +138,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="johndoe@example.com" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
                     </div>
-                    <button type="submit" class="btn btn-primary w-100">Login</button>
+                    <button type="submit" style="background-color: #846545; color: white;" class="btn w-100">Login</button>
                     <p class="text-danger"><?= $status ?></p>
                     <a class="d-block link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                       href="register.php">
+                       href="register.php" style="color:#846545;">
                         Register
                     </a>
                 </form>
