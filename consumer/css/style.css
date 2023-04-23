@@ -713,6 +713,16 @@ ul li ul li a {
   .about .content h1{
       font-size: 4rem;
   }
+  .containerr{
+    height: 300px;
+    margin:150px 0;
+    width: 100%;
+
+
+  }
+  #titleLiv{
+    margin-top: 150px ;
+  }
 
 }
 
