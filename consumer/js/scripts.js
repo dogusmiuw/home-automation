@@ -10,13 +10,11 @@ function filterSelection(c) {
   var x, i;
   x = document.getElementsByClassName("filterDiv");
   if (c == "all") c = "";
-  // Add the "show" class (display:block) to the filtered elements, and remove the "show" class from the elements that are not selected
   for (i = 0; i < x.length; i++) {
     RemoveClass(x[i], "show");
     if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
   }
 
-  // başka bir işlem yapmak istiyorsanız, buraya ekleyebilirsiniz
 }
 
 // Show filtered elements
