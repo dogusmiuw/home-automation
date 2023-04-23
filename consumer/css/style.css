@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;1,400;1,500&display=swap%27");
 
 :root {
+  --switch-height: 70px;
+  --switch-padding: 8px;
+  --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
+  --slider-height: calc(var(--switch-height) - var(--switch-padding));
+  --slider-on: calc(var(--switch-height) - var(--switch-padding));
   --clr-graylight: #cfd8dc;
   --clr-graymed: #90a4ae;
 
@@ -33,7 +38,7 @@ body {
   border: none;
   text-transform: capitalize;
   transition: all 0.2s linear;
-  scroll-behavior: smooth;
+  scroll-behavior:smooth;
 }
 
 *::selection {
@@ -482,11 +487,9 @@ ul li ul li a {
   font-size: 3rem;
   padding: 2rem;
   background: #b9936c;
-  margin-top: 1rem;
 }
 .rooms .space {
-  margin-bottom: 5rem;
-  padding-bottom: 5rem;
+  height: 20rem;
 }
 .room img {
   background-clip: inherit;
@@ -771,7 +774,8 @@ ul li ul li a {
   }
 
   section{
-      padding-top: 5rem;
+      padding: inherit;
+      padding-top: 3rem;
   }
 
   .footer .box-container .box:last-child{
@@ -797,9 +801,15 @@ ul li ul li a {
   .plan{
     width: calc(45% - 2rem);
   }
-
 }
 @media (max-width:52rem){
+  * {
+    --switch-height: 30px;
+    --switch-padding: 4px;
+    --switch-width: calc((var(--switch-height) * 2) - var(--switch-padding));
+    --slider-height: calc(var(--switch-height) - var(--switch-padding));
+    --slider-on: calc(var(--switch-height) - var(--switch-padding));
+  }
   .plan{
     width: calc(45% - 2rem);
   }
@@ -814,4 +824,197 @@ ul li ul li a {
   .plan{
     width: 90%;
   }
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: var(--switch-width);
+  height: var(--switch-height);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: var(--slider-height);
+  width: var(--slider-height);
+  left: calc(var(--switch-padding) / 2);
+  bottom: calc(var(--switch-padding) / 2);
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: #9c7853;
+}
+
+
+input:checked+.slider:before {
+  transform: translateX(var(--slider-on));
+}
+
+.slider.round {
+  border-radius: var(--slider-height);
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.livLights h3{
+margin-top: 3rem;
+font-size: 3rem;
+width: 120px;
+text-align: center;
+}
+.slidebutton{
+margin-top: 1rem;
+}
+.bedroom{
+  margin-bottom: 50rem;
+}
+
+.coloumns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.ACDisplay {
+  display: block;
+  position: relative;
+  width: 250px;
+  height: 100px;
+  border: 3px solid black;
+  background-color: #e4d6c9;
+  margin: 20px;
+  padding: 10px 10px 10px 10px;
+}
+
+.DispTempBox {
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  width: 130px;
+}
+.DispTemp {
+  position: absolute;
+  font-size: 50px;
+  font-family: serif;
+}
+
+#TempUnit {
+  position: absolute;
+  left: 55px;
+  font-size: 25px;
+  font-weight: bold;
+}
+.DispFAN {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  font-size: 20px;
+  padding: 5px;
+  border: 1px solid black;
+  text-align: left;
+}
+
+.DispFanBar {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  right: 0;
+}
+
+#DispFanBar table {
+  border-spacing: 3px;
+  border-collapse: separate;
+}
+
+#DispFanBar td,
+th {
+  width: 10px;
+  height: 25px;
+  background-color: transparent;
+  border: 1px solid black;
+}
+
+#DispRoomTemp {
+  text-align: center;
+  position: absolute;
+  left: 120px;
+  width: 95px;
+  height: 35px;
+  font-size: 22px;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.AC_Buttons_box {
+  width: 250px;
+  height: 25px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.AC_Button {
+  height: auto;
+  width: 20%;
+  background-color: #b9936c;
+  border: 1px solid #111;
+  color: #eee;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  overflow: hidden; /* NEW /
+  min-width: 0; / NEW; needed for Firefox */
+  border-radius: 5rem;
+}
+
+.is_Power {
+  background: #decbba;
+  color: #000;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+}
+
+@media only screen and (min-width: 767px) {
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  body {
+    background-color: #ffffff;
+    width: 320px;
+    margin: 10px;
+    border-style: solid;
+    border-color: blue;
+    border-left: 10px solid #900;
+    border-right: 10px solid #900;
+  }
+}
+.r{
+ height: 400px;
 }

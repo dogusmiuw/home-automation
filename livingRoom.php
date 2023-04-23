@@ -14,7 +14,7 @@
                 <h1>Living Room</h1>
                 <div class="row mb-3">
                     <div class="col-3 mb-3">
-                        <div class="card deviceInRoomCard" onclick="lightToggle()">
+                        <div class="card deviceInRoomCard">
                             <div class="card-body">
                                 <h4>Light</h4>
                                 <p class="text-center">
@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col-3 mb-3">
-                        <div class="card deviceInRoomCard" onclick="acToggle()">
+                        <div class="card deviceInRoomCard">
                             <div class="card-body">
                                 <h4>AC</h4>
                                 <p class="text-center">
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                     <div class="col-3 mb-3">
-                        <div class="card deviceInRoomCard" onclick="tvToggle()">
+                        <div class="card deviceInRoomCard">
                             <div class="card-body">
                                 <h4>TV</h4>
                                 <p class="text-center">
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="col-3 mb-3">
-                        <div class="card deviceInRoomCard" onclick="windowsToggle()">
+                        <div class="card deviceInRoomCard">
                             <div class="card-body">
                                 <h4>Windows</h4>
                                 <p class="text-center">
@@ -73,5 +73,4 @@
         <!--            </div>-->
     </div>
 </div>
-<script src="js/roomDeviceControl.js"></script>
 <?php include '_footer.php' ?>
