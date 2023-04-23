@@ -310,7 +310,7 @@ header .navbar ul li a:hover {
   line-height: 100px;
   text-align: center;
   margin: 6rem 2rem;
-  display: none; /* Hidden by default */
+  display: none; 
   height: 150px;
   width: 40%;
   font-size: 2.5rem;
@@ -338,12 +338,12 @@ h2 {
   background-position: center;
 } */
 
-/* The "show" class is added to the filtered elements */
+
 .show {
   display: block;
 }
 
-/* Style the buttons */
+
 #myBtnContainer .btn {
   border: none;
   outline: none;
@@ -364,12 +364,12 @@ h2 {
   text-align: center;
 }
 
-/* Add a light grey background on mouse-over */
+
 .btn:hover {
   background-color: #ddd;
 }
 
-/* Add a dark background to the active button */
+
 .btn.active {
   background-color: #666;
   color: white;
@@ -988,32 +988,14 @@ th {
   border-radius: 5px;
   font-size: 15px;
   cursor: pointer;
-  overflow: hidden; /* NEW /
-  min-width: 0; / NEW; needed for Firefox */
+  overflow: hidden; 
+  min-width: 0; 
   border-radius: 5rem;
 }
 
 .is_Power {
   background: #decbba;
   color: #000;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-}
-
-@media only screen and (min-width: 767px) {
-}
-
-@media only screen and (min-width: 480px) and (max-width: 767px) {
-  body {
-    background-color: #ffffff;
-    width: 320px;
-    margin: 10px;
-    border-style: solid;
-    border-color: blue;
-    border-left: 10px solid #900;
-    border-right: 10px solid #900;
-  }
 }
 .r{
  height: 400px;
