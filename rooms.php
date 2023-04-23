@@ -39,7 +39,7 @@
                         </a>
                     </div>
                     <div class="col-3 mb-3">
-                        <a href="#">
+                        <a href="kitchen.php">
                             <div class="card">
                                 <div class="card-body">
                                     <h4>Kitchen</h4>
