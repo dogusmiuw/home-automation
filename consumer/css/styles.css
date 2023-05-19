@@ -13,6 +13,10 @@
   --radius: 10em;
 
   --animation-curve: cubic-bezier(0.34, 1.36, 0.2, 1);
+  --profile-photo-size: 200px;
+  --profile-photo-border-size: 4px;
+  --profile-photo-clip-size: calc(var(--profile-photo-size)/2);
+  --ppsize: calc(var(--profile-photo-size) + calc(var(--profile-photo-border-size) * 2));
 }
 *:focus {
   outline: none;
@@ -28,6 +32,7 @@ body {
 :root {
   --orange: #ff9814;
 }
+
 * {
   font-family: "Open Sans", sans-serif;
   margin: 0;
@@ -1010,3 +1015,36 @@ th {
 .r{
  height: 400px;
 }
+:root {
+  --profile-photo-size: 150px;
+  --profile-photo-border-size: 4px;
+  --profile-photo-clip-size: calc(var(--profile-photo-size)/2);
+  --ppsize: calc(var(--profile-photo-size) + calc(var(--profile-photo-border-size) * 2));
+}
+
+.profile-photo-image-wrapper {
+  margin: 3rem 1rem;
+  position: relative;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: var(--ppsize);
+  height: var(--ppsize);
+  padding: var(--profile-photo-border-size);
+  background-color: #201102;
+}
+
+.profile-photo-image {
+  background-position: top;
+  width: var(--profile-photo-size);
+  height: var(--profile-photo-size);
+  clip-path: circle(var(--profile-photo-clip-size) at center);
+}
+.home-members{
+  display: flex;
+  padding: 4.5% 2%;
+  
+}
+
+
