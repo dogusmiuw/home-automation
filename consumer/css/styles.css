@@ -1041,10 +1041,12 @@ th {
   height: var(--profile-photo-size);
   clip-path: circle(var(--profile-photo-clip-size) at center);
 }
-.home-members{
+.column-container{
+  width: 400px;
+  height: 5000px;
   display: flex;
+  flex-direction: column;
   padding: 4.5% 2%;
   
 }
-
-
+/* music player*/
