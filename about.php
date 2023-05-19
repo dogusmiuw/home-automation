@@ -9,7 +9,7 @@
                     <div class="row">
                         <p><span class="fw-semibold">Application Version:</span> 2.1</p>
                         <div>
-                            <a href="#" class="btn btn-primary contact-btn"><i class="fa-solid fa-bug"></i> Report Bug</a>
+                            <a href="#" style="background-color: #846545; color: white;" class="btn contact-btn"><i class="fa-solid fa-bug"></i> Report Bug</a>
                         </div>
                     </div>
                 </div>

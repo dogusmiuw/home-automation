@@ -8,7 +8,7 @@
                     <h1>Devices</h1>
                     <div class="row mb-3">
                         <div>
-                            <a href="#" onclick="device_form_toggle()" class="btn btn-primary active"><i class="fa-solid fa-plus"></i> Add device</a>
+                            <a href="#" onclick="device_form_toggle()" class="btn active" style="background-color: #846545; color: white;"><i class="fa-solid fa-plus"></i> Add device</a>
                         </div>
                         <form class="mt-3 mb-3 d-none" id="addDeviceForm">
                             <div class="mb-3">
@@ -26,7 +26,7 @@
                                 <label for="ipAddress" class="form-label">Device IP</label>
                                 <input type="text" class="form-control" id="ipAddress" name="ipAddress" placeholder="ex: 192.168.2.110">
                             </div>
-                            <button type="submit" class="btn btn-primary submit-btn">Submit</button>
+                            <button type="submit" style="background-color: #846545; color: white;" class="btn submit-btn">Submit</button>
                         </form>
                     </div>
                     <div class="row">
