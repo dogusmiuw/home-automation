@@ -25,11 +25,11 @@
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
         <ul>
-          <li><a href="home.html">home</a></li>
-          <li><a href="devices.html">devices</a></li>
-          <li><a href="room.html">rooms</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="contact.html">contact</a></li>
+          <li><a href="home.php">home</a></li>
+          <li><a href="devices.php">devices</a></li>
+          <li><a href="room.php">rooms</a></li>
+          <li><a href="about.php">about</a></li>
+          <li><a href="contact.php">contact</a></li>
         </ul>
       </nav>
     </header>
@@ -44,7 +44,7 @@
                 <button class="btn btn-primary btn-1">Living room</button>
               </div>
               <div class="theback theback-1">
-                <a href="devices.html#liv">
+                <a href="devices.php#liv">
                   <button
                     class="btn"
                     style="font-size: 2.8rem; padding: 0.7rem 3.7rem"
@@ -52,7 +52,7 @@
                     Device Settings
                   </button></a
                 >
-                <a href="devices.html#liv">
+                <a href="devices.php#liv">
                   <div class="back-image back-image-1"></div>
                   <button
                     class="btn"
@@ -61,7 +61,7 @@
                     Add Devices
                   </button></a
                 >
-                <a href="devices.html#liv">
+                <a href="devices.php#liv">
                   <button class="btn" style="font-size: 2.8rem">
                     Remove Devices
                   </button></a
@@ -78,7 +78,7 @@
                 <button class="btn btn-primary btn-2">Kitchen</button>
               </div>
               <div class="theback theback-2">
-                <a href="devices.html#kit">
+                <a href="devices.php#kit">
                   <button
                     class="btn"
                     style="font-size: 2.8rem; padding: 0.7rem 3.7rem"
@@ -86,7 +86,7 @@
                     Device Settings
                   </button></a
                 >
-                <a href="devices.html#kit">
+                <a href="devices.php#kit">
                   <button
                     class="btn"
                     style="font-size: 3rem; padding: 0.7rem 5rem"
@@ -94,7 +94,7 @@
                     Add Devices
                   </button></a
                 >
-                <a href="devices.html#kit">
+                <a href="devices.php#kit">
                   <button class="btn" style="font-size: 2.8rem">
                     Remove Devices
                   </button></a
@@ -111,7 +111,7 @@
                 <button class="btn btn-primary btn-3">Bedroom</button>
               </div>
               <div class="theback theback-3">
-                <a href="devices.html#bed">
+                <a href="devices.php#bed">
                   <button
                     class="btn"
                     style="font-size: 2.8rem; padding: 0.7rem 3.7rem"
@@ -119,7 +119,7 @@
                     Device Settings
                   </button></a
                 >
-                <a href="devices.html#bed">
+                <a href="devices.php#bed">
                   <button
                     class="btn"
                     style="font-size: 3rem; padding: 0.7rem 5rem"
@@ -127,7 +127,7 @@
                     Add Devices
                   </button></a
                 >
-                <a href="devices.html#bed">
+                <a href="devices.php#bed">
                   <button class="btn" style="font-size: 2.8rem">
                     Remove Devices
                   </button></a
@@ -142,4 +142,4 @@
 
     <script src="js/scripts.js"></script>
   </body>
-</html>
+    </html>

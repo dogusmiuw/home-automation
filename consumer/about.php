@@ -18,11 +18,11 @@
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
         <ul>
-          <li><a href="home.html">home</a></li>
-          <li><a href="devices.html">devices</a></li>
-          <li><a href="room.html">rooms</a></li>
-          <li><a href="about.html">about</a></li>
-          <li><a href="contact.html">contact</a></li>
+          <li><a href="home.php">home</a></li>
+          <li><a href="devices.php">devices</a></li>
+          <li><a href="room.php">rooms</a></li>
+          <li><a href="about.php">about</a></li>
+          <li><a href="contact.php">contact</a></li>
         </ul>
       </nav>
     </header>
@@ -44,7 +44,7 @@
           This useful home automation webapp is here for you. You can use to
           manage your devices.
         </p>
-        <a href="devices.html"> <button class="btn">learn more</button></a>
+        <a href="devices.php"> <button class="btn">learn more</button></a>
       </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
