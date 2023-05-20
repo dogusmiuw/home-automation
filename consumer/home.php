@@ -42,6 +42,66 @@
       <button class = "btn"> Away</button>
     </div>
   </section>
+  <div class="plan plays">
+      <div id="app-cover">
+        <div id="bg-artwork"></div>
+        <div id="bg-layer"></div>
+        <div id="player">
+          <div id="player-track">
+            <div id="album-name"></div>
+            <div id="track-name"></div>
+            <div id="track-time">
+              <div id="current-time"></div>
+              <div id="track-length"></div>
+            </div>
+            <div id="s-area">
+              <div id="ins-time"></div>
+              <div id="s-hover"></div>
+              <div id="seek-bar"></div>
+            </div>
+          </div>
+          <div id="player-content">
+            <div id="album-art">
+              <img src="images/kader.jpg" class="active" id="_1" />
+              <img
+                src=""
+                id="_2"
+              />
+              <img
+                src=""
+                id="_3"
+              />
+              <img
+                src=""
+                id="_4"
+              />
+              <img
+                src=""
+                id="_5"
+              />
+              <div id="buffer-box">Buffering ...</div>
+            </div>
+            <div id="player-controls">
+              <div class="control">
+                <div class="buttond" id="play-previous">
+                  <i class="fas fa-backward"></i>
+                </div>
+              </div>
+              <div class="control">
+                <div class="buttond" id="play-pause-button">
+                  <i class="fas fa-play"></i>
+                </div>
+              </div>
+              <div class="control">
+                <div class="buttond" id="play-next">
+                  <i class="fas fa-forward"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   
 
