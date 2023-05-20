@@ -15,34 +15,36 @@
 </head>
 <body>
   <header>
-    <h1 class="heading">Home</h1>
     <div id="menu" class="fas fa-bars"></div>
     <nav class="navbar">
       <ul>
-        <li><a href="home.php">home</a></li>
-        <li><a href="devices.php">devices</a></li>
-        <li><a href="room.php">rooms</a></li>
-        <li><a href="about.php">about</a></li>
-        <li><a href="contact.php">contact</a></li>
+      <li><a href="home.php">home</a></li>
+          <li><a href="devices.php">devices</a></li>
+          <li><a href="room.php">rooms</a></li>
+          <li><a href="contact.php">contact</a></li>
+          <li><a href="about.php">about</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class ="column-container">
-    <div class="profile-photo-image-wrapper">
-      <img class="profile-photo-image" src="/images/dogan.png" alt="">
-      <button class = "btn"> Away</button>
+  <div class="columnss">
+      <section class="column-container">
+        <div class="profile-photo-image-wrapper">
+          <img class="profile-photo-image" src="/images/dogan.png" alt="" />
+          <button class="scn-btn">Away</button>
+        </div>
+
+        <div class="profile-photo-image-wrapper">
+          <img class="profile-photo-image" src="/images/betul.png" alt="" />
+          <button class="scn-btn">At Home</button>
+        </div>
+        <div class="profile-photo-image-wrapper">
+          <img class="profile-photo-image" src="/images/enes.png" alt="" />
+          <button class="scn-btn">Away</button>
+        </div>
+      </section>
+      <section class="warnings"></section>
     </div>
-    
-    <div class="profile-photo-image-wrapper">
-      <img class="profile-photo-image" src="/images/betul.png" alt="">
-      <button class = "btn"> At Home</button>
-    </div>
-    <div class="profile-photo-image-wrapper">
-      <img class="profile-photo-image" src="/images/enes.png" alt="">
-      <button class = "btn"> Away</button>
-    </div>
-  </section>
   <div class="plan plays">
       <div id="app-cover">
         <div id="bg-artwork"></div>
