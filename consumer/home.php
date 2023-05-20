@@ -11,6 +11,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/music.css">
 </head>
 <body>
   <header>
@@ -105,8 +106,9 @@
 
   
 
-
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/music.js"></script>
   </body>
 </html>
