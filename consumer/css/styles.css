@@ -654,43 +654,6 @@ ul li ul li a {
   background-color: #27ae60;
 } */
 /*contactus*/
-/*footer*/
-.footer {
-  position: relative;
-  background-color: #9c7853;
-  text-align: center;
-  padding-bottom: 3rem;
-  height: 20vh;
-}
-
-.footer .share {
-  padding: 2rem 2rem 2rem 0;
-}
-.footer .share a {
-  width: 5rem;
-  height: 5rem;
-  line-height: 5rem;
-  color: #fff;
-  font-size: 3rem;
-  border-color: black;
-  border-radius: 50%;
-  margin: 3px;
-}
-.footer .share a:hover {
-  background-color: black;
-}
-
-.footer .credit {
-  font-size: 2.5rem;
-  color: #fff;
-  font-weight: 300;
-  padding-top: 3rem;
-  padding-bottom: 0.01rem;
-}
-.footer .credit span {
-  color: var(--midnight);
-}
-/*footer*/
 
 /*Media queries*/
 @media (max-width: 768px) {
@@ -1008,8 +971,9 @@ th {
   );
 }
 
+/*Clock and profile photos*/
 .profile-photo-image-wrapper {
-  margin: 3rem 1rem;
+  margin: 1rem 1rem;
   position: relative;
   display: grid;
   justify-content: center;
@@ -1035,20 +999,47 @@ th {
   border-radius: 3rem;
   background: #f5f5f5;
   box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
+  max-height: 220px;
 }
-/* music player*/
+/* Temperature*/
 .columnss {
+  height: 1200px;
+  width: 600px;
+  max-width: 700px;
+  margin-top: 6.5rem;
+  float: left;
+}
+.clockk {
+  height: 20px;
+  margin: 1rem 2rem 2rem 2rem;
+  border: 1px solid #ffffff;
+  border-radius: 3rem;
+  width: 560px;
+  background: #f5f5f5;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
+}
+.columnss2 {
   height: 1000px;
   width: 600px;
   max-width: 700px;
   margin-top: 6.5rem;
   float: left;
 }
-.warnings {
-  height: 200px;
+.clock {
+  padding-bottom: 11rem;
+  margin-left: 27rem;
+  transform: translateX(-50%) translateY(-50%);
+  color: #000;
+  font-size: 60px;
+  font-family: Orbitron;
+  letter-spacing: 7px;
+  width: 100%;
+}
+.weatherr {
   margin: 1rem 2rem 2rem 2rem;
-  border: 1px solid #0b993a;
+  border: 1px solid #ffffff;
   border-radius: 3rem;
   width: 560px;
-  background: #0b993a;
+  background: #f5f5f5;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
 }
