@@ -28,6 +28,9 @@
   </header>
 
   <div class="columnss">
+      <section class="clockk">
+        <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+      </section>
       <section class="column-container">
         <div class="profile-photo-image-wrapper">
           <img class="profile-photo-image" src="/images/dogan.png" alt="" />
@@ -43,8 +46,46 @@
           <button class="scn-btn">Away</button>
         </div>
       </section>
-      <section class="warnings"></section>
+      <div class="weatherr">
+        <section class="cardd" data-weather="card">
+          <div class="body">
+            <div class="temperature">
+              <figure class="icon">
+                <img src="" alt="" data-weather="icon" />
+              </figure>
+              <div class="content" data-weather="temperature">
+                <div class="is-fahrenheit is-hidden">
+                  <span class="value" data-weather="fahrenheit"></span>
+                  <span>F</span>
+                </div>
+                <div class="is-celsius">
+                  <span class="value" data-weather="celsius"></span>
+                  <span class="scale">C</span>
+                </div>
+              </div>
+              <div class="actions">
+                <button
+                  class="button is-active"
+                  data-weather-action="show-celcius"
+                >
+                  °C
+                </button>
+                <button class="button" data-weather-action="show-fahrenheit">
+                  °F
+                </button>
+              </div>
+            </div>
+          </div>
+          <footer class="footer">
+            <div class="weather">
+              <h3 class="city" data-weather="local">...</h3>
+              <p class="clime" data-weather="clime">...</p>
+            </div>
+          </footer>
+        </section>
+      </div>
     </div>
+    <div class="columnss2"></div>
   <div class="plan plays">
       <div id="app-cover">
         <div id="bg-artwork"></div>
