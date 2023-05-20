@@ -76,6 +76,7 @@ section {
   border-radius: 2rem;
   color: #000;
   font-weight: 700;
+  cursor:default;
 }
 .btn {
   font-size: 2rem;
