@@ -81,7 +81,7 @@ button {
 }
 .temperature > .content {
   position: relative;
-  letter-spacing: -5px;
+  letter-spacing: 0.3rem;
 }
 .temperature > .content .value {
   position: relative;
@@ -121,9 +121,9 @@ button {
   text-decoration: none;
   cursor: pointer;
 }
-.weather .city{
+.weather .city {
   font-size: 3rem;
 }
-.weather .clime{
+.weather .clime {
   font-size: 2.5rem;
 }
