@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link
-      rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/music.css" />
@@ -84,7 +85,53 @@
         </div>
       </div>
       <div class="columnss2"></div>
-      <div class="columnss3"></div>
+      <div class="columnss3">
+        <div class="warnings">
+          <div class="notification green">
+            <div class="info">
+              <h1>
+                Your electricity consumption is 1 kWh less than last month.
+              </h1>
+            </div>
+            <div class="icon">
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div>
+        </div>
+        <div class="warnings">
+          <div class="notification red">
+            <div class="info">
+              <h1>Ben Doğan geliyorum</h1>
+            </div>
+            <div class="icon">
+              <i
+                class="fa-solid fa-circle-xmark fa-beat"
+                style="color: #ffffff"
+              ></i>
+            </div>
+          </div>
+        </div>
+        <div class="warnings">
+          <div class="notification blue">
+            <div class="info">
+              <h1>preview is here</h1>
+            </div>
+            <div class="icon">
+              <i class="fa-solid fa-triangle-exclamation fa-flip"></i>
+            </div>
+          </div>
+        </div>
+        <div class="warnings">
+          <div class="notification purple">
+            <div class="info">
+              <h1><a>8 min</a> to home with a bicycle</h1>
+            </div>
+            <div class="icon">
+              <i class="fa-regular fa-bell fa-shake"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="plan plays">
       <div id="app-cover">
@@ -135,14 +182,15 @@
       </div>
     </div>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/7a022ccbad.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/scripts.js"></script>
     <script src="js/music.js"></script>
     <script src="js/babel.js"></script>
     <script src="js/clock.js"></script>
   </body>
 </html>
-
-
-
