@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <style>
+      body {
+        height: 100vh;
+      }
+    </style>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -12,17 +17,18 @@
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/music.css" />
     <link rel="stylesheet" href="css/weather.css" />
+    <link rel="stylesheet" href="css/switch.css" />
   </head>
   <body>
     <header>
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
         <ul>
-          <li><a href="home.php">home</a></li>
-          <li><a href="devices.php">devices</a></li>
-          <li><a href="room.php">rooms</a></li>
-          <li><a href="contact.php">contact</a></li>
-          <li><a href="about.php">about</a></li>
+          <li><a href="home.html">home</a></li>
+          <li><a href="devices.html">devices</a></li>
+          <li><a href="room.html">rooms</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <li><a href="about.html">about</a></li>
         </ul>
       </nav>
     </header>
@@ -36,6 +42,7 @@
             <img class="profile-photo-image" src="/images/dogan.png" alt="" />
             <button class="scn-btn">Away</button>
           </div>
+
           <div class="profile-photo-image-wrapper">
             <img class="profile-photo-image" src="/images/betul.png" alt="" />
             <button class="scn-btn">At Home</button>
@@ -84,7 +91,72 @@
           </section>
         </div>
       </div>
-      <div class="columnss2"></div>
+      <div class="columnss2">
+        <div class="welcomes">
+          <h3>Welcome home</h3>
+        </div>
+        <div onload="onpageload()" class="switches">
+          <div id="wrap" class="switchess">
+            <fieldset class="switchess1">
+              <h2 style="left: 50px">Smart Switch!</h2>
+              <div class="center center1">
+                <h1>Living Room</h1>
+                <input
+                  onClick="s1()"
+                  type="checkbox"
+                  name="checkbox1"
+                  id="checkbox1"
+                />
+                <br />
+                <h1>Bedroom</h1>
+                <input
+                  onClick="s2()"
+                  type="checkbox"
+                  name="checkbox2"
+                  id="checkbox2"
+                />
+                <br />
+                <h1>Kitchen</h1>
+                <input
+                  onClick="s3()"
+                  type="checkbox"
+                  name="checkbox3"
+                  id="checkbox3"
+                />
+                <br />
+                <h1>FAN</h1>
+                <input
+                  onClick="fan()"
+                  type="checkbox"
+                  name="checkbox5"
+                  id="checkbox5"
+                />
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div onload="onpageload()" class="switches2">
+          <fieldset class="switchess2">
+            <h2 style="left: 95px; top: -50px">Fan Speed!</h2>
+            <input type="radio" id="radio1-1" onClick="s5(25)" name="radio" />
+            <label for="radio1-1">1</label>
+            <input type="radio" id="radio1-2" onClick="s5(35)" name="radio" />
+            <label for="radio1-2">2</label>
+            <input type="radio" id="radio1-3" onClick="s5(55)" name="radio" />
+            <label for="radio1-3">3</label>
+            <input type="radio" id="radio1-4" onClick="s5(75)" name="radio" />
+            <label for="radio1-4">4</label>
+            <input type="radio" id="radio1-5" onClick="s5(90)" name="radio" />
+            <label for="radio1-5">5</label>
+          </fieldset>
+        </div>
+        <div onload="onpageload()" class="switches3">
+          <fieldset class="switchess3">
+            <h2 style="top: -50px">The Super Switch!</h2>
+            <a onClick="s6()" class="superBtn">ON/OFF All Switch</a>
+          </fieldset>
+        </div>
+      </div>
       <div class="columnss3">
         <div class="warnings">
           <div class="notification green">
@@ -131,49 +203,49 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="plan plays">
-      <div id="app-cover">
-        <div id="bg-artwork"></div>
-        <div id="bg-layer"></div>
-        <div id="player">
-          <div id="player-track">
-            <div id="album-name"></div>
-            <div id="track-name"></div>
-            <div id="track-time">
-              <div id="current-time"></div>
-              <div id="track-length"></div>
-            </div>
-            <div id="s-area">
-              <div id="ins-time"></div>
-              <div id="s-hover"></div>
-              <div id="seek-bar"></div>
-            </div>
-          </div>
-          <div id="player-content">
-            <div id="album-art">
-              <img src="images/kader.jpg" class="active" id="_1" />
-              <img src="" id="_2" />
-              <img src="" id="_3" />
-              <img src="" id="_4" />
-              <img src="" id="_5" />
-              <div id="buffer-box">Buffering ...</div>
-            </div>
-            <div id="player-controls">
-              <div class="control">
-                <div class="buttond" id="play-previous">
-                  <i class="fas fa-backward"></i>
+        <div class="plan plays">
+          <div id="app-cover">
+            <div id="bg-artwork"></div>
+            <div id="bg-layer"></div>
+            <div id="player">
+              <div id="player-track">
+                <div id="album-name"></div>
+                <div id="track-name"></div>
+                <div id="track-time">
+                  <div id="current-time"></div>
+                  <div id="track-length"></div>
+                </div>
+                <div id="s-area">
+                  <div id="ins-time"></div>
+                  <div id="s-hover"></div>
+                  <div id="seek-bar"></div>
                 </div>
               </div>
-              <div class="control">
-                <div class="buttond" id="play-pause-button">
-                  <i class="fas fa-play"></i>
+              <div id="player-content">
+                <div id="album-art">
+                  <img src="images/kader.jpg" class="active" id="_1" />
+                  <img src="" id="_2" />
+                  <img src="" id="_3" />
+                  <img src="" id="_4" />
+                  <img src="" id="_5" />
+                  <div id="buffer-box">Buffering ...</div>
                 </div>
-              </div>
-              <div class="control">
-                <div class="buttond" id="play-next">
-                  <i class="fas fa-forward"></i>
+                <div id="player-controls">
+                  <div class="control">
+                    <div class="buttond" id="play-previous">
+                      <i class="fas fa-backward"></i>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <div class="buttond" id="play-pause-button">
+                      <i class="fas fa-play"></i>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <div class="buttond" id="play-next">
+                      <i class="fas fa-forward"></i>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -181,16 +253,16 @@
         </div>
       </div>
     </div>
-
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script
       src="https://kit.fontawesome.com/7a022ccbad.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.0/morris.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/music.js"></script>
     <script src="js/babel.js"></script>
     <script src="js/clock.js"></script>
+    <script src="js/switch.js"></script>
   </body>
 </html>
