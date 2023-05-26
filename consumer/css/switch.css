@@ -1,0 +1,324 @@
+@media only screen and (max-width: 800px) {
+  /* For tablets: */
+  body {
+    width: 100%;
+  }
+  fieldset {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  body {
+    width: 100%;
+  }
+  fieldset {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  body {
+  }
+}
+
+a,
+input[type="radio"] + label {
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+}
+fieldset {
+  width: 300px;
+  border-radius: 8px;
+  margin: auto;
+  min-height: 10px;
+  line-height: 10px;
+  position: relative;
+  float: auto;
+  top: 60px;
+}
+h2 {
+  font-size: 3rem;
+  font-family: "Lobster", cursive;
+  font-weight: 900;
+  color: #b9936c;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12);
+  display: inline-block;
+  margin: 0;
+  line-height: 1.3;
+  position: absolute;
+  top: -30px;
+  padding: 0 5px 0 5px;
+}
+input[type="radio"] {
+  display: none;
+} /* ------------------- Default State -------------------- */
+input[type="radio"] + label {
+  z-index: 10;
+  margin: 20px 10px 10px 7px;
+  width: 115.5px;
+  height: 37.29px;
+  line-height: 36.3px;
+  position: relative;
+  font-size: 13.2px;
+  letter-spacing: 0.1em;
+  color: #0e0e0e;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  background: linear-gradient(0deg, #6d6c6c, #3f3535);
+  border-radius: 3px;
+  box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 255, 255, 0.05), 0 0 3px rgba(255, 255, 255, 0.2);
+}
+input[type="radio"] + label:after {
+  z-index: -1;
+  content: "";
+  cursor: pointer;
+  top: 1.98px;
+  margin-left: 50%;
+  left: -55px;
+  width: 110px;
+  height: 33px;
+  display: block;
+  position: absolute;
+  background-image: linear-gradient(#444, #373738);
+  border-radius: 2px;
+  box-shadow: inset 0 2px 1px -1px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 1px -1px rgba(0, 0, 0, 0.2), 0 12px 12px rgba(0, 0, 0, 0.5),
+    0 4px 6px rgba(0, 0, 0, 0.3);
+} /* ------------------- Hover States -------------------- */
+a.hover,
+input[type="radio"] + label:hover {
+  color: #000;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+a.hover:after,
+input[type="radio"] + label:hover:after {
+  background: #b9936c;
+} /* ------------------- Active States -------------------- */
+a.active,
+a.active:hover,
+input[type="radio"]:checked + label {
+  color: #b9936c;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3), 0 0px 30px rgba(0, 255, 255, 0.7);
+  box-shadow: 0 -1px 0 rgba(0, 193, 255, 0.2), 0 0 0 1px rgba(0, 0, 0, 0.4),
+    0 1px 0 rgba(255, 255, 255, 0.05), 0 0 20px rgba(0, 193, 255, 0.1),
+    0 0 30px rgba(0, 193, 255, 0.1);
+}
+a.active,
+a.active:hover {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 1), 0 0px 30px rgba(0, 255, 255, 1),
+    0 0px 50px rgba(0, 255, 255, 1);
+}
+a.active:after,
+a.active:hover:after,
+input[type="radio"]:checked + label:after {
+  background: linear-gradient(0deg, #6d6c6c, #3f3535);
+  box-shadow: inset 0 5px 6px rgba(0, 0, 0, 0.3),
+    inset 0 0 4px rgba(0, 0, 0, 0.9), 0 0 0 black;
+} /* ------------------- Radio Specific Style -------------------- */
+input[type="radio"] + label {
+  font-family: "ModernPictogramsNormal", Arial, sans-serif;
+  font-size: 30px;
+  line-height: 47px;
+  letter-spacing: 0;
+  width: 39px;
+  height: 39px;
+}
+input[type="radio"] + label:after {
+  top: 2.5px;
+  left: -19px;
+  width: 38px;
+  height: 38px;
+}
+.rainbow-text {
+  background-image: linear-gradient(90deg, #e646ff, #8737ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.center {
+  position: relative;
+  left: 10px;
+  top: 10px;
+}
+input[type="checkbox"] {
+  margin: 10px;
+  position: relative;
+  cursor: pointer;
+  width: 150px;
+  height: 55px;
+  align: right;
+  -webkit-appearance: none;
+  background: linear-gradient(0deg, #6d6c6c, #3f3535);
+  outline: none;
+  border-radius: 40px;
+  box-shadow: 0 0 0 1px #353535, 0 0 0 3px #7c7a7a,
+    inset 0 0 10px rgba(0, 0, 0, 1);
+}
+input:checked[type="checkbox"]:nth-of-type(1) {
+  background: #e7cfb7;
+  box-shadow: 0 0 0 1px #353535, 0 0 0 3px #3e3e3e,
+    inset 0 0 10px rgba(0, 0, 0, 1);
+}
+input:checked[type="checkbox"]:nth-of-type(2) {
+  background: #e7cfb7;
+  box-shadow: 0 0 0 1px #353535, 0 0 0 3px #3e3e3e,
+    inset 0 0 10px rgba(0, 0, 0, 1);
+}
+input:checked[type="checkbox"]:nth-of-type(3) {
+  background: #e7cfb7;
+  box-shadow: 0 0 0 1px #353535, 0 0 0 3px #3e3e3e,
+    inset 0 0 10px rgba(0, 0, 0, 1);
+}
+input:checked[type="checkbox"]:nth-of-type(4) {
+  background: #e7cfb7;
+  box-shadow: 0 0 0 1px #353535, 0 0 0 3px #3e3e3e,
+    inset 0 0 10px rgba(0, 0, 0, 1);
+}
+input:checked[type="checkbox"]:nth-of-type(5) {
+  background: #e7cfb7;
+  box-shadow: 0 0 0 1px #353535, 0 0 0 3px #3e3e3e,
+    inset 0 0 10px rgba(0, 0, 0, 1);
+}
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 70px;
+  height: 55px;
+  background: #b9936c;
+  border-radius: 40px;
+  box-shadow: 0 0 0 1px #232323;
+  transform: scale(0.98, 0.96);
+  transition: 0.5s;
+}
+input:checked[type="checkbox"]:before {
+  left: 80px;
+} /*---DOT SEEN IN BEETWEEN-->*/
+input[type="checkbox"]:after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 15px;
+  width: 4px;
+  height: 4px;
+  background: linear-gradient(0deg, #6b6b6b, #000);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+input:checked[type="checkbox"]:after {
+  left: 130px;
+}
+.center h1 {
+  margin: 20px, 0, 0, 35px;
+  padding: 0;
+  right: 1%;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 22px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: absolute;
+  align: right;
+}
+h5 {
+  position: absolute;
+  float: center;
+  top: -5px;
+  padding: 0;
+  font-family: Lucidatypewriter, monospace;
+  text-align: center;
+  color: #fff;
+  margin-left: 35%;
+  font-size: 25px; /*padding: 35px 0;*/
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+/* ------------------- 	SuperBtn -------------------- */
+a.superBtn {
+  font-size: 2rem;
+  color: #0e0e0e;
+  background-color: #b9936c;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  width: 242px;
+  height: 39.6px;
+  line-height: 39.6px;
+  position: relative;
+  border-radius: 30px;
+  display: inline-block;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3), inset 0 0 0px 1px rgba(0, 0, 0, 0.1),
+    0 0 1px rgba(0, 0, 0, 0.5), 0 2px 2px rgba(0, 0, 0, 0.4);
+}
+a.superBtn:after {
+  width: 253px;
+  height: 49.5px;
+  top: -4.95px;
+  margin-left: 50%;
+  left: -126.5px;
+  content: "";
+  display: block;
+  border-radius: 30px;
+  background-image: linear-gradient(#2af1fc, #17b2e6);
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.4),
+    0 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 0px 3px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: -1;
+} /* ------------------- SuperBtn Hover -------------------- */
+a.superBtn:hover {
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.8);
+  color: #b9936c;
+  background-color: transparent;
+  border: 1px solid #b9936c;
+}
+a.superBtn:hover:after {
+  box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.7), 0 1px 1px rgba(255, 255, 255, 0.4),
+    0 0 1px 1px rgba(0, 0, 0, 0.3), inset 0 0px 3px rgba(0, 0, 0, 0.4),
+    inset 0 1px 2px rgba(0, 0, 0, 0.6), 0 0 15px 5px rgba(0, 255, 255, 0.2);
+}
+a.superBtn:active {
+  color: #0cf;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3), 0 0px 30px rgba(0, 255, 255, 0.7);
+  background: #333;
+  box-shadow: 0 1px 0px rgba(255, 255, 255, 0.4),
+    inset 0 3px 3px rgba(0, 0, 0, 0.7), inset 0 0 4px rgba(0, 0, 0, 0.9),
+    0 0 0 black;
+}
+#wrap {
+  display: block;
+}
+.switchess {
+  position: relative;
+  width: 350px;
+  height: 460px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+  background-color: transparent;
+}
+.center1 {
+  margin-top: 5rem;
+}
+.switchess2 {
+  position: relative;
+  width: 350px;
+  height: 150px;
+  padding: 0.5em;
+  background-color: transparent;
+  text-align: center;
+}
+.switchess3 {
+  position: relative;
+  width: 350px;
+  height: 150px;
+  padding: 0.5em;
+  background-color: transparent;
+  text-align: center;
+}
