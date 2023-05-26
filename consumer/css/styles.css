@@ -76,7 +76,7 @@ section {
   border-radius: 2rem;
   color: #000;
   font-weight: 700;
-  cursor:default;
+  cursor: default;
 }
 .btn {
   font-size: 2rem;
@@ -993,6 +993,7 @@ th {
 }
 .column-container {
   margin: 2rem;
+  margin-bottom: 5rem;
   display: flex;
   padding: 4.5% 2%;
   border: 1px solid #ffffff;
@@ -1009,10 +1010,11 @@ th {
   max-width: 700px;
   margin-top: 6.5rem;
   float: left;
+  margin-left: 10rem;
 }
 .clockk {
   height: 20px;
-  margin: 1rem 2rem 2rem 2rem;
+  margin: 2rem 2rem 5rem 2rem;
   border: 1px solid #ffffff;
   border-radius: 3rem;
   width: calc(100% - 14rem);
@@ -1044,6 +1046,32 @@ th {
   background: #f5f5f5;
   box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
 }
+.switches {
+  margin: 2rem 0 11rem 6.7rem;
+  border: 1px solid #ffffff;
+  border-radius: 3rem;
+  width: calc(100% - 14rem);
+  background: #f5f5f5;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
+}
+.switches2 {
+  margin: 1rem 0 11rem 6.7rem;
+  border: 1px solid #ffffff;
+  border-radius: 3rem;
+  width: calc(100% - 14rem);
+  background: #f5f5f5;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
+  margin-bottom: 6rem;
+}
+.switches3 {
+  margin: 16rem 0 2rem 6.7rem;
+  border: 1px solid #ffffff;
+  border-radius: 3rem;
+  width: calc(100% - 14rem);
+  background: #f5f5f5;
+  box-shadow: 5px 10px 15px 5px rgba(0, 0, 0, 0.75);
+}
+
 .columnss3 {
   height: 1100px;
   width: 34%;
@@ -1054,9 +1082,11 @@ th {
 .coloumnss {
   width: 100%;
   height: 1100px;
+  display: flex;
+  justify-content: space-between;
 }
 .warnings {
-  margin: 1rem 2rem 2rem 2rem;
+  margin: 5rem 2rem 2rem 2rem;
   border: 1px solid #ffffff;
   border-radius: 3rem;
   width: 560px;
@@ -1068,8 +1098,8 @@ th {
 .notification {
   -webkit-display: flex;
   display: flex;
-  margin: auto; 
-  width: calc(100% - 5rem);
+  margin-left: 1.5rem;
+  width: calc(98% - 0.5rem);
   min-height: 70px;
 }
 .notification .info {
@@ -1082,11 +1112,10 @@ th {
 .notification .icon {
   padding: 15px 0 0 0;
   width: 70px;
-  border-radius: 0 3px 3px 0;
   text-align: center;
   font-size: 32px;
   color: #ecf0f1;
-  border-bottom: 3px solid;
+  border-radius: 3rem;
 }
 .notification .icon {
   background: #7f8c8d;
@@ -1130,4 +1159,7 @@ th {
   #preview {
     display: block;
   }
+}
+.music {
+  margin: 10rem 2rem 2rem 2rem;
 }
