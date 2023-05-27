@@ -289,7 +289,6 @@ header .navbar ul li a:hover {
 .theback {
   border-radius: 1rem;
   backface-visibility: hidden;
-  background: url("../images/background.jpg");
   color: var(--black-color);
   font-size: 2.5rem;
   position: absolute;
@@ -302,6 +301,31 @@ header .navbar ul li a:hover {
   justify-content: center;
   flex-direction: column;
   transform: rotateY(180deg);
+}
+.theback-1 {
+  background-image: url("../images/living-room.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  display: flex;
+  width: calc(50% -2px);
+  backdrop-filter: blur(50px);
+}
+.theback-2 {
+  background-image: url("../images/kitchen.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  display: flex;
+  width: calc(50% -2px);
+}
+.theback-3 {
+  background-image: url("../images/bedroom.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: scroll;
+  display: flex;
+  width: calc(50% -2px);
 }
 .card:hover .card-inner {
   transform: rotateY(-180deg);
@@ -499,6 +523,7 @@ ul li ul li a {
   justify-content: center;
 }
 .rooms .title {
+  
   text-align: center;
   font-size: 3rem;
   padding: 2rem;
@@ -556,34 +581,6 @@ ul li ul li a {
 
 .section:hover .overlay {
   background-color: rgb(0, 0, 0, 0.4);
-}
-
-#livingroom {
-  background-image: url(../images/living-room.jpg);
-}
-
-#playroom {
-  background-image: url(../images/playroom.jpg);
-}
-
-#balcony {
-  background-image: url(../images/balcony.jpg);
-}
-
-#studio {
-  background-image: url(../images/studio.jpg);
-}
-
-#kitchen {
-  background-image: url(../images/kitchen.jpg);
-}
-
-#bedroom {
-  background-image: url(../images/bedroom.jpg);
-}
-
-#bathroom {
-  background-image: url(../images/bathroom.jpg);
 }
 
 /*animate*/
@@ -698,7 +695,7 @@ ul li ul li a {
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 650px) {
   html {
     font-size: 50%;
   }
@@ -975,8 +972,8 @@ th {
   background: #decbba;
   color: #000;
 }
-.r {
-  height: 400px;
+.room-item {
+  margin-top: 15rem;
 }
 :root {
   --profile-photo-size: 150px;
@@ -1220,3 +1217,66 @@ th {
 .music {
   margin: 10rem 2rem 2rem 2rem;
 }
+.rowr {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10rem;
+  width: 1822px;
+}
+.label-success {
+  font-size: 3rem;
+  margin-left: 23rem;
+  margin-bottom: 2rem;
+}
+#area-chart,
+#line-chart,
+#bar-chart,
+#stacked,
+#pie-chart {
+  margin-top: 3rem;
+  min-height: 250px;
+  max-width: 700px;
+}
+.menu-btns {
+  padding: 0.6rem 0;
+  display: flex;
+  justify-content: center;
+}
+.menu-btn {
+  font-size: 5rem;
+  font-weight: 600;
+  background: none;
+  border: none;
+  color: #b9936c;
+  display: block;
+  margin: 0 5rem;
+  cursor: pointer;
+  outline: none;
+  transform: opacity 0.4s ease-out;
+}
+.menu-btn::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-left: auto;
+  background: #b9936c;
+  margin-right: auto;
+  margin-top: 0.5rem;
+  width: 0;
+  transition: width 0.4s ease-out;
+  height: 1rem;
+}
+.menu-btn:hover::after {
+  width: 100%;
+}
+.active-btn {
+  color: #b9936c;
+}
+.active-btn::after {
+  width: 100%;
+}
+ 
+#chartContainer {
+  margin-top: 10rem;
+}
+
