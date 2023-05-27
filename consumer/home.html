@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,7 +20,18 @@
     <link rel="stylesheet" href="css/switch.css" />
   </head>
   <body>
-      <?php include("header.php") ?>
+    <header>
+      <div id="menu" class="fas fa-bars"></div>
+      <nav class="navbar">
+        <ul>
+          <li><a href="home.html">home</a></li>
+          <li><a href="devices.html">devices</a></li>
+          <li><a href="room.html">rooms</a></li>
+          <li><a href="contact.html">contact</a></li>
+          <li><a href="about.html">about</a></li>
+        </ul>
+      </nav>
+    </header>
     <div class="coloumnss">
       <div class="columnss1">
         <section class="clockk">
@@ -29,16 +39,16 @@
         </section>
         <section class="column-container">
           <div class="profile-photo-image-wrapper">
-            <img class="profile-photo-image" src="/images/dogan.png" alt="" />
+            <img class="profile-photo-image" src="images/dogan.png" alt="" />
             <button class="scn-btn">Away</button>
           </div>
 
           <div class="profile-photo-image-wrapper">
-            <img class="profile-photo-image" src="/images/betul.png" alt="" />
+            <img class="profile-photo-image" src="images/betul.png" alt="" />
             <button class="scn-btn">At Home</button>
           </div>
           <div class="profile-photo-image-wrapper">
-            <img class="profile-photo-image" src="/images/enes.png" alt="" />
+            <img class="profile-photo-image" src="images/enes.png" alt="" />
             <button class="scn-btn">Away</button>
           </div>
         </section>
@@ -85,13 +95,6 @@
         <div class="welcomes">
           <h3>Welcome home</h3>
         </div>
-        <?php 
-       $sql = "SELECT * FROM `light` where `light-id` =1";
-        $queryLight = $db->prepare($sql);
-        $queryLight->execute();
-        $light = $queryLight->fetch(PDO::FETCH_ASSOC);
-       
-        ?>
         <div onload="onpageload()" class="switches">
           <div id="wrap" class="switchess">
             <fieldset class="switchess1">
@@ -103,21 +106,7 @@
                   type="checkbox"
                   name="checkbox1"
                   id="checkbox1"
-                  <?php 
-                  if($light["light-status_"]==1){
-                    echo "checked";
-                    $time = $db->prepare("UPDATE light SET light-time_:=light-time_ , light-status_ WHERE light-id = :light-id");
-                    $currentTime = date("Y-m-d H:i:s");
-                    $added = $time->execute(array(
-                      "light-time_" => $currentTime,
-                      "light-id" => 1
-                      
-                  ));
-                  }else{
-                    echo "";
-                  }
-                  ?>
-                /> 
+                />
                 <br />
                 <h1>Bedroom</h1>
                 <input
@@ -215,7 +204,7 @@
           </div>
         </div>
         <div class="enterance">
-          <h4>Home check-in Time</h4>
+          <h4>Home check-in Times</h4>
           <div class="person firstP">
             <i
               class="fa-sharp fa-solid fa-person-walking"
@@ -245,7 +234,7 @@
               class="fa-sharp fa-solid fa-person-walking"
               style="display: inline"
             ></i>
-            <p>Şerzan has</p>
+            <p>Şerzan has gone to hometown</p>
             <p class="time">3 months</p>
           </div>
         </div>
