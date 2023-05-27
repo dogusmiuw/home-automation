@@ -24,11 +24,11 @@
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
         <ul>
-          <li><a href="home.html">home</a></li>
-          <li><a href="devices.html">devices</a></li>
-          <li><a href="room.html">rooms</a></li>
-          <li><a href="contact.html">contact</a></li>
-          <li><a href="about.html">about</a></li>
+          <li><a href="home.php">home</a></li>
+          <li><a href="devices.php">devices</a></li>
+          <li><a href="room.php">rooms</a></li>
+          <li><a href="contact.php">contact</a></li>
+          <li><a href="about.php">about</a></li>
         </ul>
       </nav>
     </header>
@@ -201,6 +201,41 @@
             <div class="icon">
               <i class="fa-regular fa-bell fa-shake"></i>
             </div>
+          </div>
+        </div>
+        <div class="enterance">
+          <h4>Home check-in Times</h4>
+          <div class="person firstP">
+            <i
+              class="fa-sharp fa-solid fa-person-walking"
+              style="display: inline"
+            ></i>
+            <p>Doğan has arrived</p>
+            <p class="time">25 min</p>
+          </div>
+          <div class="person secondP">
+            <i
+              class="fa-sharp fa-solid fa-person-walking"
+              style="display: inline"
+            ></i>
+            <p>Betül has left</p>
+            <p class="time">55 min</p>
+          </div>
+          <div class="person thirdP">
+            <i
+              class="fa-sharp fa-solid fa-person-walking"
+              style="display: inline"
+            ></i>
+            <p>Enes has has</p>
+            <p class="time">15 days</p>
+          </div>
+          <div class="person fourthP">
+            <i
+              class="fa-sharp fa-solid fa-person-walking"
+              style="display: inline"
+            ></i>
+            <p>Şerzan has gone to hometown</p>
+            <p class="time">3 months</p>
           </div>
         </div>
         <div class="plan plays">
