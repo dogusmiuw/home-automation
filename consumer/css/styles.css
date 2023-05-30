@@ -442,6 +442,10 @@ section nav ul li {
 section nav ul {
   text-align: center;
 }
+nav ul li a.current {
+  color: #000;
+}
+
 
 li a {
   color: black;
