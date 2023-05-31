@@ -28,19 +28,60 @@
           <div id="MyClockDisplay" class="clock" onload="showTime()"></div>
         </section>
         <section class="column-container">
-          <div class="profile-photo-image-wrapper">
-            <img class="profile-photo-image" src="/images/dogan.png" alt="" />
-            <button class="scn-btn">Away</button>
-          </div>
 
-          <div class="profile-photo-image-wrapper">
-            <img class="profile-photo-image" src="/images/betul.png" alt="" />
-            <button class="scn-btn">At Home</button>
-          </div>
-          <div class="profile-photo-image-wrapper">
-            <img class="profile-photo-image" src="/images/enes.png" alt="" />
-            <button class="scn-btn">Away</button>
-          </div>
+          
+          <?php 
+$sql = "SELECT * FROM `memberdistance`";
+$distance = $db->prepare($sql);
+$distance->execute();
+$distances = $distance->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($distances as $dist) {
+    // Process each member's data here
+    if ($dist["memberId"] == 1) {
+      echo '<div class="profile-photo-image-wrapper">';
+        echo '<img src="images/dogan.png" alt="profile-photo" class="profile-photo-image">';
+        
+        if ($dist["memberStatus"] == 0) {
+            echo '<button class="scn-btn">Away</button>';
+            echo '</div>'; 
+            
+        } else {
+            echo '<button class="scn-btn">At Home</button>';
+            echo '</div>'; 
+        }
+        
+    } else if ($dist["memberId"] == 2) {
+      echo '<div class="profile-photo-image-wrapper">';
+        echo '<img src="images/betul.png" alt="profile-photo" class="profile-photo-image">';
+        
+        if ($dist["memberStatus"] == 0) {
+            echo '<button class="scn-btn">Away</button>';
+            echo '</div>'; 
+        } else {
+            echo '<button class="scn-btn">At Home</button>';
+            echo '</div>'; 
+        }
+    }
+    else if ($dist["memberId"] == 3) {
+      echo '<div class="profile-photo-image-wrapper">';
+      echo '<img src="images/enes.png" alt="profile-photo" class="profile-photo-image">';
+      
+      if ($dist["memberStatus"] == 0) {
+          echo '<button class="scn-btn">Away</button>';
+          echo '</div>'; 
+      } else {
+          echo '<button class="scn-btn">At Home</button>';
+          echo '</div>'; 
+      }
+  }
+    // Add more conditions for other memberIds if needed
+}
+?>
+
+            
+
+
         </section>
         <div class="weatherr">
           <section class="cardd" data-weather="card">
@@ -86,7 +127,7 @@
           <h3>Welcome home</h3>
         </div>
         <?php 
-       $sql = "SELECT * FROM `light` where `light-id` =1";
+       $sql = "SELECT * FROM `light`";
         $queryLight = $db->prepare($sql);
         $queryLight->execute();
         $light = $queryLight->fetch(PDO::FETCH_ASSOC);
