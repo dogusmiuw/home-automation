@@ -45,7 +45,6 @@ body {
   background-attachment: fixed;
   background-size: cover;
   position: relative;
-  overflow-x: hidden;
 }
 
 :root {
