@@ -455,35 +455,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
       </div>
       <div class="rowr">
         <h1 class="title" >Graph</h1>
-        <?php include("graph.php") ?>
-          <div id="cr"></div>
-          </div>
-          
-    </section> 
-    
-    <script>
-window.onload = function () {
- 
-var chart = new CanvasJS.Chart("cr", {
-  height: 400,
-  width: 1200,
-	animationEnabled: true,
-	exportEnabled: true,
-  backgroundColor:"#e0d6cc",
-	theme: "light2", // "light1", "light2", "dark1", "dark2"
-	title:{
-		text: "yarragim"
-	},
-	data: [{
-    
-		type: "column", //change type to bar, line, area, pie, etc  
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
-	}]
-});
-chart.render();
- 
-}
-</script>
+        
 
     <script src="js/chart.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>

@@ -6,12 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Plan</title>
     <style>
-      html {
-        height: 130vh;
-      }
-      * {
-        scroll-behavior: none;
-      }
+      .infos {
+  background: #6f6f85;
+  opacity: 0.8;
+  display: fixed;
+  top: 0;
+}
+.infos h3 {
+  margin-bottom: 2rem;
+  font-weight: 900;
+}
     </style>
     <link
       rel="stylesheet"
@@ -23,7 +27,7 @@
    
   <?php include("header.php") ?>
 
-    <section id="plans">
+  <section id="plans">
       <div class="container">
         <div class="plan">
           <div class="card">
@@ -33,28 +37,10 @@
                 <button class="btn btn-primary btn-1">Living room</button>
               </div>
               <div class="theback theback-1">
-                <a href="devices.php#liv">
-                  <button
-                    class="btn"
-                    style="font-size: 2.8rem; padding: 0.7rem 3.7rem"
-                  >
-                    Device Settings
-                  </button></a
-                >
-                <a href="devices.php#liv">
-                  <div class="back-image back-image-1"></div>
-                  <button
-                    class="btn"
-                    style="font-size: 3rem; padding: 0.7rem 5rem"
-                  >
-                    Add Devices
-                  </button></a
-                >
-                <a href="devices.php#liv">
-                  <button class="btn" style="font-size: 2.8rem">
-                    Remove Devices
-                  </button></a
-                >
+                <div class="infos">
+                  <h3>Room temperature : 23 °C</h3>
+                  <h4>Light Off</h4>
+                </div>
               </div>
             </div>
           </div>
@@ -67,27 +53,11 @@
                 <button class="btn btn-primary btn-2">Kitchen</button>
               </div>
               <div class="theback theback-2">
-                <a href="devices.php#kit">
-                  <button
-                    class="btn"
-                    style="font-size: 2.8rem; padding: 0.7rem 3.7rem"
-                  >
-                    Device Settings
-                  </button></a
-                >
-                <a href="devices.php#kit">
-                  <button
-                    class="btn"
-                    style="font-size: 3rem; padding: 0.7rem 5rem"
-                  >
-                    Add Devices
-                  </button></a
-                >
-                <a href="devices.php#kit">
-                  <button class="btn" style="font-size: 2.8rem">
-                    Remove Devices
-                  </button></a
-                >
+                <div class="back-image back-image-1"></div>
+                <div class="infos">
+                  <h3>Room temperature : 23 °C</h3>
+                  <h4>Light Off</h4>
+                </div>
               </div>
             </div>
           </div>
@@ -100,27 +70,10 @@
                 <button class="btn btn-primary btn-3">Bedroom</button>
               </div>
               <div class="theback theback-3">
-                <a href="devices.php#bed">
-                  <button
-                    class="btn"
-                    style="font-size: 2.8rem; padding: 0.7rem 3.7rem"
-                  >
-                    Device Settings
-                  </button></a
-                >
-                <a href="devices.php#bed">
-                  <button
-                    class="btn"
-                    style="font-size: 3rem; padding: 0.7rem 5rem"
-                  >
-                    Add Devices
-                  </button></a
-                >
-                <a href="devices.php#bed">
-                  <button class="btn" style="font-size: 2.8rem">
-                    Remove Devices
-                  </button></a
-                >
+                <div class="infos">
+                  <h3>Room temperature : 23 °C</h3>
+                  <h4>Light Off</h4>
+                </div>
               </div>
             </div>
           </div>
