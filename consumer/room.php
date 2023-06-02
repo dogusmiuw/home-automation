@@ -7,7 +7,7 @@
     <title>Plan</title>
     <style>
       .infos {
-  background: #6f6f85;
+  background: #b9936c;
   opacity: 0.8;
   display: fixed;
   top: 0;

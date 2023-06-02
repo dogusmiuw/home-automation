@@ -190,7 +190,7 @@
     </section>
     <section class="rooms" style="padding-top: 0">
       <div class="livingroom room-item" id="">
-        <h1 class="title" id="titleLiv">living Room</h1>
+        <h1 class="title" id="titleLiv">Manage living room devices</h1>
         <div class="coloumns">
           <div class="AC">
             <div id="ACDisplayL" class="ACDisplay">
@@ -250,7 +250,7 @@
         </div>
       </div>
       <div class="kitchen room-item">
-        <h1 class="title">Kitchen</h1>
+        <h1 class="title">Manage kitchen devices</h1>
         <div class="coloumns">
           <div class="lights livLights">
             <h3>Light</h3>
@@ -273,7 +273,7 @@
         </div>
       </div>
       <div class="bedroom room-item" style="margin-bottom: 20rem">
-        <h1 class="title">Bedroom</h1>
+        <h1 class="title">Manage bedroom devices</h1>
         <div class="coloumns">
           <div class="AC">
             <div id="ACDisplayB" class="ACDisplay">

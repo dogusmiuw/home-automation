@@ -32,7 +32,7 @@
           This useful home automation webapp is here for you. You can use to
           manage your devices.
         </p>
-        <a href="devices.php"> <button class="btn">learn more</button></a>
+        <a href="contact.php"> <button class="btn">learn more</button></a>
       </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
