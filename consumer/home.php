@@ -127,10 +127,10 @@ foreach ($distances as $dist) {
           <h3>Welcome home</h3>
         </div>
         <?php 
-       $sql = "SELECT * FROM `light`";
-        $queryLight = $db->prepare($sql);
-        $queryLight->execute();
-        $light = $queryLight->fetch(PDO::FETCH_ASSOC);
+       $sql = "SELECT * FROM `livingroom` where `livId` =1";
+        $queryLiving = $db->prepare($sql);
+        $queryLiving->execute();
+        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
        
         ?>
         <div onload="onpageload()" class="switches">
@@ -141,19 +141,14 @@ foreach ($distances as $dist) {
                 <h1>Living Room</h1>
                 <input
                   onClick="s1()"
+                  onchange="lightUpdate()"
                   type="checkbox"
                   name="checkbox1"
                   id="checkbox1"
                   <?php 
-                  if($light["light-status_"]==1){
+                  if($living["lightStatus"]==1){
                     echo "checked";
-                    $time = $db->prepare("UPDATE light SET light-time_:=light-time_ , light-status_ WHERE light-id = :light-id");
-                    $currentTime = date("Y-m-d H:i:s");
-                    $added = $time->execute(array(
-                      "light-time_" => $currentTime,
-                      "light-id" => 1
-                      
-                  ));
+                    
                   }else{
                     echo "";
                   }
@@ -351,5 +346,34 @@ foreach ($distances as $dist) {
     <script src="js/babel.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/switch.js"></script>
+    <script>
+    function lightUpdate(){
+      <?php 
+        $sql = "SELECT * FROM `livingroom` where `livId` =1";
+        $queryLiving = $db->prepare($sql);
+        $queryLiving->execute();
+        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
+        if($living['lightStatus'] == 1){
+          $sqlLight = "UPDATE livingroom SET lightStatus = : lightStatus WHERE livId =: livId";
+          $updatelight= $db->prepare($sqlLight);
+          $queryLight->execute(array(
+            "livId" => 1,
+            "lightStatus" => 0
+          ));
+        }
+        else{
+          $sqlLight = "UPDATE livingroom SET lightStatus = : lightStatus WHERE livId =: livId";
+          $updatelight= $db->prepare($sqlLight);
+          $queryLight->execute(array(
+            "livId" =>1, 
+            "lightStatus" => 1
+          ));
+        }
+        
+        
+
+        ?>
+    }
+    </script>
   </body>
 </html>

@@ -15,6 +15,12 @@
     };
 </script>
 
+<script>
+       setTimeout(() => {
+            document.location.reload();
+        }, 10000);
+    </script>
+
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
         <ul>
