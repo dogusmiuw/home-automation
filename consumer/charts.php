@@ -77,7 +77,7 @@
     
     <section class="rooms" style="padding-top: 0">
       <div class="livingroom room-item" id="">
-        <h1 class="title" id="titleLiv">Living Room</h1>
+        <h1 class="title" id="titleLiv">detailed analysis for living room</h1>
         <div class="coloumns">
           <div id="chartContainer1" style="width: 45%; height: 300px;display: inline-block;"><?php include("graph.php") ?></div> 
           <div id="chartContainer2" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="kitchen room-item">
-        <h1 class="title">Kitchen</h1>
+        <h1 class="title">detailed analysis for kitchen</h1>
         <div class="coloumns">
           <div id="chartContainer5" style="width: 45%; height: 300px;display: inline-block;"><?php include("graph.php") ?></div> 
           <div id="chartContainer6" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="bedroom room-item" style="margin-bottom: 20rem">
-        <h1 class="title">Bedroom</h1>
+        <h1 class="title">detailed analysis for bedroom</h1>
         <div class="coloumns">
           <div id="chartContainer9" style="width: 45%; height: 300px;display: inline-block;"><?php include("graph.php") ?></div> 
           <div id="chartContainer10" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
@@ -134,13 +134,14 @@ var chart = new CanvasJS.Chart("chartContainer2", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Consumption",
+    text: "Electricity Consumption kW",
   },
   data: [
     {
       type: "pie",
-      dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+      dataPoints: <?php echo json_encode($dataPoints2, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
@@ -150,8 +151,9 @@ var chart = new CanvasJS.Chart("chartContainer3", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Bills",
+    text: "Last 3 Months Electricity Bills For This Room",
   },
   axisX: {
     valueFormatString: "MMM",
@@ -164,32 +166,7 @@ var chart = new CanvasJS.Chart("chartContainer3", {
   data: [
     {
       type: "line",
-      dataPoints: [
-        { x: new Date(2012, 00, 1), y: 450 },
-        { x: new Date(2012, 01, 1), y: 414 },
-        {
-          x: new Date(2012, 02, 1),
-          y: 520,
-          indexLabel: "highest",
-          markerColor: "red",
-          markerType: "triangle",
-        },
-        { x: new Date(2012, 03, 1), y: 460 },
-        { x: new Date(2012, 04, 1), y: 450 },
-        { x: new Date(2012, 05, 1), y: 500 },
-        { x: new Date(2012, 06, 1), y: 480 },
-        { x: new Date(2012, 07, 1), y: 480 },
-        {
-          x: new Date(2012, 08, 1),
-          y: 410,
-          indexLabel: "lowest",
-          markerColor: "DarkSlateGrey",
-          markerType: "cross",
-        },
-        { x: new Date(2012, 09, 1), y: 500 },
-        { x: new Date(2012, 10, 1), y: 480 },
-        { x: new Date(2012, 11, 1), y: 510 },
-      ],
+      dataPoints: <?php echo json_encode($dataPoints3, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
@@ -199,6 +176,7 @@ var chart = new CanvasJS.Chart("chartContainer4", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
     text: "Temperature",
   },
@@ -213,17 +191,7 @@ var chart = new CanvasJS.Chart("chartContainer4", {
       color: "#b9936c",
       showInLegend: true,
       legendText: "Room Temperature",
-      dataPoints: [
-        { x: 10, y: 35, label: "12.00" },
-        { x: 20, y: 32, label: "12.01" },
-        { x: 30, y: 30, label: "12.02" },
-        { x: 40, y: 28, label: "12.03" },
-        { x: 50, y: 26, label: "12.04" },
-        { x: 60, y: 24, label: "12.05" },
-        { x: 70, y: 22, label: "12.06" },
-        { x: 80, y: 22, label: "12.07" },
-      ],
-    },
+      dataPoints: <?php echo json_encode($dataPoints4, JSON_NUMERIC_CHECK); ?>},
     {
       type: "area",
       legendMarkerType: "circle",
@@ -249,6 +217,7 @@ chart.render();
 var chart = new CanvasJS.Chart("chartContainer5", {
   axisY:{
   margin: 100,
+  backgroundColor:"#e0d6cc",
  },
  title: {
     text: "Rooms Current Electricity Usage",
@@ -270,13 +239,14 @@ var chart = new CanvasJS.Chart("chartContainer6", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Consumption",
+    text: "Electricity Consumption kW",
   },
   data: [
     {
       type: "pie",
-      dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+      dataPoints: <?php echo json_encode($dataPoints6, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
@@ -286,6 +256,7 @@ var chart = new CanvasJS.Chart("chartContainer7", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
     text: "Electricity Bills",
   },
@@ -300,32 +271,7 @@ var chart = new CanvasJS.Chart("chartContainer7", {
   data: [
     {
       type: "line",
-      dataPoints: [
-        { x: new Date(2012, 00, 1), y: 450 },
-        { x: new Date(2012, 01, 1), y: 414 },
-        {
-          x: new Date(2012, 02, 1),
-          y: 520,
-          indexLabel: "highest",
-          markerColor: "red",
-          markerType: "triangle",
-        },
-        { x: new Date(2012, 03, 1), y: 460 },
-        { x: new Date(2012, 04, 1), y: 450 },
-        { x: new Date(2012, 05, 1), y: 500 },
-        { x: new Date(2012, 06, 1), y: 480 },
-        { x: new Date(2012, 07, 1), y: 480 },
-        {
-          x: new Date(2012, 08, 1),
-          y: 410,
-          indexLabel: "lowest",
-          markerColor: "DarkSlateGrey",
-          markerType: "cross",
-        },
-        { x: new Date(2012, 09, 1), y: 500 },
-        { x: new Date(2012, 10, 1), y: 480 },
-        { x: new Date(2012, 11, 1), y: 510 },
-      ],
+      dataPoints: <?php echo json_encode($dataPoints7, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
@@ -335,6 +281,7 @@ var chart = new CanvasJS.Chart("chartContainer8", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
     text: "Temperature",
   },
@@ -385,6 +332,7 @@ chart.render();
 var chart = new CanvasJS.Chart("chartContainer9", {
   axisY:{
   margin: 100,
+  backgroundColor:"#e0d6cc",
  },
  title: {
     text: "Rooms Current Electricity Usage",
@@ -406,13 +354,14 @@ var chart = new CanvasJS.Chart("chartContainer10", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Consumption",
+    text: "Electricity Consumption kW",
   },
   data: [
     {
       type: "pie",
-      dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+      dataPoints: <?php echo json_encode($dataPoints10, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
@@ -422,6 +371,7 @@ var chart = new CanvasJS.Chart("chartContainer11", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
     text: "Electricity Bills",
   },
@@ -436,32 +386,7 @@ var chart = new CanvasJS.Chart("chartContainer11", {
   data: [
     {
       type: "line",
-      dataPoints: [
-        { x: new Date(2012, 00, 1), y: 450 },
-        { x: new Date(2012, 01, 1), y: 414 },
-        {
-          x: new Date(2012, 02, 1),
-          y: 520,
-          indexLabel: "highest",
-          markerColor: "red",
-          markerType: "triangle",
-        },
-        { x: new Date(2012, 03, 1), y: 460 },
-        { x: new Date(2012, 04, 1), y: 450 },
-        { x: new Date(2012, 05, 1), y: 500 },
-        { x: new Date(2012, 06, 1), y: 480 },
-        { x: new Date(2012, 07, 1), y: 480 },
-        {
-          x: new Date(2012, 08, 1),
-          y: 410,
-          indexLabel: "lowest",
-          markerColor: "DarkSlateGrey",
-          markerType: "cross",
-        },
-        { x: new Date(2012, 09, 1), y: 500 },
-        { x: new Date(2012, 10, 1), y: 480 },
-        { x: new Date(2012, 11, 1), y: 510 },
-      ],
+      dataPoints: <?php echo json_encode($dataPoints11, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
@@ -471,6 +396,7 @@ var chart = new CanvasJS.Chart("chartContainer12", {
   height: 400,
   width: 800,
   animationEnabled: true,
+  backgroundColor:"#e0d6cc",
   title: {
     text: "Temperature",
   },
