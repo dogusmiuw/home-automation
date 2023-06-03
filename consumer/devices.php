@@ -214,8 +214,11 @@
                 </div>
               </div>
               <div class="AC_Buttons_box">
-                <button class="AC_Button is_Power" onclick="AC_B_PowerL()" >O/I</button>
-                <button class="AC_Button" onclick="AC_B_UPL()" >&#9650 </button>
+                <form action="operations.php" method = "post" id = "power">
+                <input type="hidden" name="roomId" value = 1>
+                </form>
+                <button class="AC_Button is_Power " id = "ananan" onclick="AC_B_PowerL()" type = "submit" form="power" name = "power">O/I</button>
+                <button class="AC_Button" onclick="AC_B_UPL()" type = "submit" >&#9650 </button>
                 <button class="AC_Button" onclick="AC_B_FANL()">FAN </button>
                 <button class="AC_Button" onclick="AC_B_DOWNL()" >&#9660 </button>
             </div>
@@ -256,7 +259,13 @@
             <h3>Light</h3>
             <div class="slidebutton">
               <label class="switch">
-                <input type="checkbox" />
+              <?php 
+        $queryLiving = $db->prepare('SELECT lightStatus from livingroom where livId = 1');
+        $queryLiving->execute();
+        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
+       
+        ?>
+              <input type="checkbox" checked="true;" />
                 <span class="slider round"></span>
               </label>
             </div>
@@ -327,5 +336,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/filter.js"></script>
+    <script>
+  function lightUpdate(){
+      <?php 
+        $sql = "SELECT * FROM `livingroom` where `livId` =1";
+        $queryLiving = $db->prepare($sql);
+        $queryLiving->execute();
+        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
+        if($living['lightStatus'] == 1){
+          $newLightStatus = 0;
+                    $livId = 1;
+                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
+                    $handle->bindParam(':newLightStatus', $newLightStatus);
+                    $handle->bindParam(':livId', $livId);
+                    $handle->execute();
+                    $db = null;
+        }
+        else{
+          $newLightStatus = 1;
+                    $livId = 1;
+                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
+                    $handle->bindParam(':newLightStatus', $newLightStatus);
+                    $handle->bindParam(':livId', $livId);
+                    $handle->execute();
+                    $db = null;
+        }
+        
+        
+
+        ?>
+    }
+</script>
   </body>
 </html>
+
+
