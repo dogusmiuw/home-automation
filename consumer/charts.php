@@ -199,16 +199,7 @@ var chart = new CanvasJS.Chart("chartContainer4", {
       color: "black",
       showInLegend: true,
       legendText: "Air Conditioner Temperature",
-      dataPoints: [
-        { x: 10, y: 22, label: "12.00" },
-        { x: 20, y: 22, label: "12.01" },
-        { x: 30, y: 22, label: "12.02" },
-        { x: 40, y: 22, label: "12.03" },
-        { x: 50, y: 22, label: "12.04" },
-        { x: 60, y: 22, label: "12.05" },
-        { x: 70, y: 22, label: "12.06" },
-        { x: 80, y: 22, label: "12.07" },
-      ],
+      dataPoints: <?php echo json_encode($dataPoints4_, JSON_NUMERIC_CHECK); ?>
     },
   ],
 });
