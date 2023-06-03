@@ -18,7 +18,7 @@
 <script>
        setTimeout(() => {
             document.location.reload();
-        }, 10000);
+        }, 30000);
     </script>
 
       <div id="menu" class="fas fa-bars"></div>
