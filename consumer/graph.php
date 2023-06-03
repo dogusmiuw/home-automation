@@ -156,27 +156,37 @@ catch(\PDOException $ex){
  ?>
  <?php 
  $dataPoints4 = array();
+ $dataPoints4_ = array();
  //Best practice is to create a separate file for handling connection to database
  try{
       // Creating a new connection.
      // Replace your-hostname, your-db, your-username, your-password according to your database
      $link = new \PDO(   "mysql:host=localhost;dbname=web-programming","root","");
      
-     $handle = $link->prepare('SELECT roomTemp, fanTemp from temperature where roomId = 1'); 
+     $handle = $link->prepare('SELECT roomTemp,time_ FROM logs ORDER BY id DESC LIMIT 10  '); 
      $handle->execute(); 
      $result = $handle->fetchAll(\PDO::FETCH_OBJ);
      
          
      foreach($result as $row){
-         array_push($dataPoints4, array("label"=> $row->roomTemp, "y"=> $row->fanTemp));
+         array_push($dataPoints4, array("label"=> $row->time_, "y"=> $row->roomTemp));
      }
-     $newRoomTemp = 55; // Yeni roomTemp değeri
-     $roomId = 1; // Güncellenmek istenen odanın ID'si
+     $dataPoints4 = array_reverse($dataPoints4);
+    //  $newRoomTemp = 35; // Yeni roomTemp değeri
+    //  $roomId = 1; // Güncellenmek istenen odanın ID'si
 
-$handle = $link->prepare('UPDATE temperature SET roomTemp = :newRoomTemp WHERE roomId = :roomId');
-$handle->bindParam(':newRoomTemp', $newRoomTemp);
-$handle->bindParam(':roomId', $roomId);
-$handle->execute();
+    // $handle = $link->prepare('UPDATE temperature SET roomTemp = :newRoomTemp WHERE roomId = :roomId');
+    // $handle->bindParam(':newRoomTemp', $newRoomTemp);
+    // $handle->bindParam(':roomId', $roomId);
+    // $handle->execute();
+
+    $handle_ = $link->prepare('SELECT fanTemp,time_ from logs ORDER BY id DESC LIMIT 10 '); 
+    $handle_->execute(); 
+    $result_ = $handle_->fetchAll(\PDO::FETCH_OBJ);
+    foreach($result_ as $row){
+        array_push($dataPoints4_, array("label"=> $row->time_, "y"=> $row->fanTemp));
+    }
+    $dataPoints4_ = array_reverse($dataPoints4_);
 
      $link = null;
  }
@@ -184,21 +194,73 @@ $handle->execute();
      print($ex->getMessage());
  }
 
- $maxSure = 20; // Süreyi 60 saniye olarak varsayalım
- $baslangicZamani = time(); // Başlangıç zamanını kaydediyoruz
- $roomTemp =32;
- $fanTemp = 22;
- while ($roomTemp == $fanTemp) {
-     // Döngü işlemleri burada yapılır
  
-     // Süre kontrolü
-     $gecenSure = time() - $baslangicZamani;
-     if ($gecenSure >= $maxSure) {
-         $roomTemp--;
+ 
+ 
+ ?>
 
+ <?php 
+  $link = new \PDO(   "mysql:host=localhost;dbname=web-programming","root","");
+  $handle = $link->prepare('SELECT roomTemp, fanTemp from temperature where roomId = 1'); 
+  $handle->execute(); 
+  $result = $handle->fetch(\PDO::FETCH_ASSOC);
+  print_r($result);
+
+
+    $sql = "SELECT MAX(id) as max_id FROM logs";
+        $resultt = $link->prepare($sql);
+        $resultt->execute();
+        $row = $resultt->fetch(PDO::FETCH_ASSOC);
+        print_r($row);
+        $last_id = $row['max_id'];
+        $last_id++;
+        echo $last_id;
         
-     }
- }
- 
- 
+
+    $roomTemp = $result["roomTemp"];
+    $fanTemp = $result["fanTemp"];
+
+if($fanTemp>0){
+    if($roomTemp > $fanTemp){
+        $newRoomTemp = $roomTemp-1; // Yeni roomTemp değeri
+        $roomId = 1; // Güncellenmek istenen odanın ID'si
+        $handle = $link->prepare('UPDATE temperature SET roomTemp=:newRoomTemp WHERE roomId = :roomId');
+        $handle->bindParam(':newRoomTemp', $newRoomTemp);
+        $handle->bindParam(':roomId', $roomId);
+        $handle->execute();
+        $query = $link->prepare("INSERT INTO logs (id, roomTemp, time_,fanTemp) VALUES (:id, :roomTemp, :time_, :fanTemp)");
+        $query->bindParam(':id', $last_id);
+        $query->bindParam(':roomTemp', $newRoomTemp);
+        $currentTime = date("H:i:s");
+        $query->bindParam(':time_', $currentTime);
+        $query->bindParam(':fanTemp', $fanTemp);
+        $insert = $query->execute();
+
+if ($insert) {
+    echo "Veriler başarıyla eklendi.";
+} else {
+    echo "Veri ekleme hatası.";
+}
+            
+
+    }
+    else{
+        $newRoomTemp = $roomTemp+1; // Yeni roomTemp değeri
+        $roomId = 1; // Güncellenmek istenen odanın ID'si
+        $handle = $link->prepare('UPDATE temperature SET roomTemp=:newRoomTemp WHERE roomId = :roomId');
+        $handle->bindParam(':newRoomTemp', $newRoomTemp);
+        $handle->bindParam(':roomId', $roomId);
+        $handle->execute();
+        $query = $link->prepare("INSERT INTO logs (id, roomTemp, time_,fanTemp) VALUES (:id, :roomTemp, :time_, :fanTemp)");
+        $query->bindParam(':id', $last_id);
+        $query->bindParam(':roomTemp', $newRoomTemp);
+        $currentTime = date("H:i:s");
+        $query->bindParam(':time_', $currentTime);
+        $query->bindParam(':fanTemp', $fanTemp);
+        $insert = $query->execute();
+    }
+    
+}
+    $link = null;
+
  ?>
