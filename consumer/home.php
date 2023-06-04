@@ -127,7 +127,8 @@ foreach ($distances as $dist) {
           <h3>Welcome home</h3>
         </div>
         <?php 
-        $queryLiving = $db->prepare('SELECT lightStatus from livingroom where livId = 1');
+       $sql = "SELECT * FROM `livingroom` where `livId` =1";
+        $queryLiving = $db->prepare($sql);
         $queryLiving->execute();
         $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
        
@@ -142,6 +143,8 @@ foreach ($distances as $dist) {
                   onClick="s1()"
                   onchange="lightUpdate()"
                   type="checkbox"
+                  name="checkbox1"
+                  id="checkbox1"
                   <?php 
                   if($living["lightStatus"]==1){
                     echo "checked";
@@ -373,98 +376,6 @@ foreach ($distances as $dist) {
 
         ?>
     }
-
-    function lightUpdate2(){
-      <?php 
-        $sql = "SELECT * FROM `bedroom` where `livId` =1";
-        $queryLiving = $db->prepare($sql);
-        $queryLiving->execute();
-        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
-        if($living['lightStatus'] == 1){
-          $newLightStatus = 0;
-                    $livId = 1;
-                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
-                    $handle->bindParam(':newLightStatus', $newLightStatus);
-                    $handle->bindParam(':livId', $livId);
-                    $handle->execute();
-                    $db = null;
-        }
-        else{
-          $newLightStatus = 1;
-                    $livId = 1;
-                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
-                    $handle->bindParam(':newLightStatus', $newLightStatus);
-                    $handle->bindParam(':livId', $livId);
-                    $handle->execute();
-                    $db = null;
-        }
-        
-        
-
-        ?>
-    }
-
-    function lightUpdate3(){
-      <?php 
-        $sql = "SELECT * FROM `livingroom` where `livId` =1";
-        $queryLiving = $db->prepare($sql);
-        $queryLiving->execute();
-        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
-        if($living['lightStatus'] == 1){
-          $newLightStatus = 0;
-                    $livId = 1;
-                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
-                    $handle->bindParam(':newLightStatus', $newLightStatus);
-                    $handle->bindParam(':livId', $livId);
-                    $handle->execute();
-                    $db = null;
-        }
-        else{
-          $newLightStatus = 1;
-                    $livId = 1;
-                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
-                    $handle->bindParam(':newLightStatus', $newLightStatus);
-                    $handle->bindParam(':livId', $livId);
-                    $handle->execute();
-                    $db = null;
-        }
-        
-        
-
-        ?>
-    }
-
-    function fanUpdate4(){
-      <?php 
-        $sql = "SELECT * FROM `livingroom` where `livId` =1";
-        $queryLiving = $db->prepare($sql);
-        $queryLiving->execute();
-        $living = $queryLiving->fetch(PDO::FETCH_ASSOC);
-        if($living['lightStatus'] == 1){
-          $newLightStatus = 0;
-                    $livId = 1;
-                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
-                    $handle->bindParam(':newLightStatus', $newLightStatus);
-                    $handle->bindParam(':livId', $livId);
-                    $handle->execute();
-                    $db = null;
-        }
-        else{
-          $newLightStatus = 1;
-                    $livId = 1;
-                    $handle = $db->prepare('UPDATE livingroom SET lightStatus = :newLightStatus WHERE livId = :livId');
-                    $handle->bindParam(':newLightStatus', $newLightStatus);
-                    $handle->bindParam(':livId', $livId);
-                    $handle->execute();
-                    $db = null;
-        }
-        
-        
-
-        ?>
-    }
-
-
     </script>
   </body>
 </html>

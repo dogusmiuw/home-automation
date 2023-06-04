@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
 include ('connect.php');
 if(isset($_POST['power'])){
     $handle = $db->prepare('UPDATE temperature SET fanTemp=:fanTemp WHERE roomId = :roomId');
@@ -9,4 +9,4 @@ if(isset($_POST['power'])){
     header("Location:devices.php");
 }
 
-?>
+?> -->
