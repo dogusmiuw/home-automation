@@ -224,7 +224,7 @@
             <h3>Light</h3>
             <div class="slidebutton">
               <label class="switch switch1">
-                <input type="checkbox" checked="true;" />
+               <input onClick="s1()" type="checkbox" name="checkbox1" id="checkbox1"/> 
                 <span class="slider round"></span>
               </label>
             </div>
