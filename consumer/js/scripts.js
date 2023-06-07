@@ -44,15 +44,16 @@ function RemoveClass(element, name) {
 
 // btn aktif etme
 // Add active class to the current control button (highlight it)
-var btnContainer = document.getElementById("myBtnContainer");
-var btns = btnContainer.getElementsByClassName("btn");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function () {
-    var current = document.getElementsByClassName("active");
-    current[0].className = current[0].className.replace(" active", "");
-    this.className += " active";
-  });
-}
+// var btnContainer = document.getElementById("myBtnContainer");
+// if(btnContainer.getElementsByClassName(btn) != null)
+// var btns = btnContainer.getElementsByClassName("btn");
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function () {
+//     var current = document.getElementsByClassName("active");
+//     current[0].className = current[0].className.replace(" active", "");
+//     this.className += " active";
+//   });
+// }
 function toggleImage(imgId, textId, divId) {
   const img = document.getElementById(imgId);
   const textElement = document.getElementById(textId);

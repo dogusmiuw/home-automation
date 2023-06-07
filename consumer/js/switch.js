@@ -11,147 +11,40 @@ var sa3 = 0;
 var sa4 = 0;
 var fa = 0;
 var swt_typ = 0;
-InitWebSocket();
-
-function InitWebSocket() {
-  websock = new WebSocket("ws://" + window.location.hostname + ":88/");
-  websock.onmessage = function (evt) {
-    JSONobj = JSON.parse(evt.data);
-    sa1 = JSONobj.sw1;
-    sa2 = JSONobj.sw2;
-    sa3 = JSONobj.sw3;
-    sa4 = JSONobj.sw4;
-    fa = JSONobj.fan;
-    s5val = JSONobj.sw5;
-    wifires = JSONobj.wifires;
-    swt_typ = JSONobj.swttyp;
-    console.log(s5val);
-    if (sa1 == 0) {
-      // Any scope
-      document.getElementById("checkbox1").checked = false;
-      console.log("Sw1=off");
-    }
-    if (sa1 == 1) {
-      // Any scope
-      document.getElementById("checkbox1").checked = true;
-      console.log("Sw1=on");
-    }
-    if (sa2 == 0) {
-      // Any scope
-      document.getElementById("checkbox2").checked = false;
-    }
-    if (sa2 == 1) {
-      // Any scope
-      document.getElementById("checkbox2").checked = true;
-    }
-    if (sa3 == 0) {
-      // Any scope
-      document.getElementById("checkbox3").checked = false;
-    }
-    if (sa3 == 1) {
-      // Any scope
-      document.getElementById("checkbox3").checked = true;
-    }
-    if (sa4 == 0) {
-      // Any scope
-      document.getElementById("checkbox4").checked = false;
-    }
-    if (sa4 == 1) {
-      // Any scope
-      document.getElementById("checkbox4").checked = true;
-    }
-
-    if (s5val >= 80) {
-      document.getElementById("radio1-5").checked = true;
-      console.log("5");
-      console.log(s5val);
-    } else if (s5val < 80 && s5val >= 65) {
-      document.getElementById("radio1-4").checked = true;
-      console.log("4");
-      console.log(s5val);
-    } else if (s5val < 65 && s5val >= 45) {
-      document.getElementById("radio1-3").checked = true;
-      console.log("3");
-      console.log(s5val);
-    } else if (s5val < 45 && s5val >= 25) {
-      document.getElementById("radio1-2").checked = true;
-    } else if (s5val <= 25) {
-      document.getElementById("radio1-1").checked = true;
-    }
-
-    if (fa == 0) {
-      // Any scope
-      document.getElementById("checkbox5").checked = false;
-      fanoff();
-    }
-    if (fa == 1) {
-      // Any scope
-      document.getElementById("checkbox5").checked = true;
-    }
-
-    if (swt_typ) {
-      document.getElementById("swtyp1").style["box-shadow"] =
-        "0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3";
-      document.getElementById("swtyp0").style["box-shadow"] = "none";
-    } else {
-      document.getElementById("swtyp0").style["box-shadow"] =
-        "0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3";
-      document.getElementById("swtyp1").style["box-shadow"] = "none";
-    }
-
-    document.getElementById("irval").value = JSONobj.irval;
-
-    irresult = JSONobj.irres;
-    switch (irresult) {
-      case 0:
-        document.getElementById("irres").value = "Receiver Mode Off";
-        break;
-      case 1:
-        document.getElementById("irres").value = "IR value saved for Switch 1";
-        break;
-      case 2:
-        document.getElementById("irres").value = "IR value saved for Switch 2";
-        break;
-      case 3:
-        document.getElementById("irres").value = "IR value saved for Switch 3";
-        break;
-      case 4:
-        document.getElementById("irres").value = "IR value saved for Switch 4";
-        break;
-      case 5:
-        document.getElementById("irres").value =
-          "IR value saved for Fan ON/OFF";
-        break;
-      case 6:
-        document.getElementById("irres").value = "IR value saved for Fan High";
-        break;
-      case 7:
-        document.getElementById("irres").value = "IR value saved for Fan Low";
-        break;
-      case 8:
-        document.getElementById("irres").value = "IR value not saved";
-        break;
-      case 9:
-        document.getElementById("irval").value = "Error";
-        break;
-    }
-
-    if (wifires == 1) {
-      alert("wifi saved successfully");
-    }
-    if (wifires == 2) {
-      alert("wifi not saved!!!");
-    }
-  };
-}
 
 function s1() {
-  btn = "sw1=1";
-  if (document.getElementById("checkbox1").checked == true) btn = "sw1=1";
-  else btn = "sw1=0";
-  console.log(btn);
-  websock.send(btn);
-}
+  
+
+
+  if (document.getElementById('checkbox1') != null) {
+    
+    var checkStatus = document.getElementById("checkbox1").checked;
+    
+  
+    
+      console.log('csdjfks')
+      // AJAX ile HTTP isteği gönderme
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'change-status.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function () {
+        
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          
+          console.log(xhr.responseText);
+          // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+          xhr.responseText;
+        }
+      };
+      var params =
+        "onof=" + encodeURIComponent(checkStatus);
+         xhr.send(params);
+  
+      // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+      // alert("Değişiklikler başarıyla kaydedildi.");
+    };
+  }
+
 
 function s2() {
   btn = "sw2=1";
