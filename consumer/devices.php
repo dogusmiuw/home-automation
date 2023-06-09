@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php 
+<?php
 session_start();
 ?>
+
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -227,7 +228,7 @@ session_start();
           <div class="slidebutton">
             <label class="switch switch1">
               <?php
-              
+
               $sql = "SELECT * FROM `livingroom` where `livId` =1";
               $queryLiving = $db->prepare($sql);
               $queryLiving->execute();
@@ -250,7 +251,14 @@ session_start();
           <h3>Tv</h3>
           <div class="slidebutton">
             <label class="switch switch1">
-              <input type="checkbox" checked="true" />
+              <input onClick="s7()" type="checkbox" name="checkbox7" id="checkbox7" <?php
+              if ($living["tvStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <span class="slider round"></span>
             </label>
           </div>
@@ -259,7 +267,14 @@ session_start();
           <h3>Windows</h3>
           <div class="slidebutton">
             <label class="switch switch1">
-              <input type="checkbox" />
+              <input onClick="s8()" type="checkbox" name="checkbox8" id="checkbox8" <?php
+              if ($living["windowStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <span class="slider round"></span>
             </label>
           </div>
@@ -270,17 +285,17 @@ session_start();
       <h1 class="title">Manage kitchen devices</h1>
       <div class="coloumns">
         <div class="lights livLights">
-        <?php
-              $sql = "SELECT * FROM `kitchen` where `kitchenId` =1";
-              $queryKitchen = $db->prepare($sql);
-              $queryKitchen->execute();
-              $kitchen = $queryKitchen->fetch(PDO::FETCH_ASSOC);
+          <?php
+          $sql = "SELECT * FROM `kitchen` where `kitchenId` =1";
+          $queryKitchen = $db->prepare($sql);
+          $queryKitchen->execute();
+          $kitchen = $queryKitchen->fetch(PDO::FETCH_ASSOC);
 
-              ?>
+          ?>
           <h3>Light</h3>
           <div class="slidebutton">
             <label class="switch">
-            <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" <?php
+              <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" <?php
               if ($kitchen["lightStatus"] == 1) {
                 echo "checked";
 
@@ -296,7 +311,14 @@ session_start();
           <h3>Windows</h3>
           <div class="slidebutton">
             <label class="switch switch1">
-              <input type="checkbox" checked="true" />
+              <input onClick="s9()" type="checkbox" name="checkbox9" id="checkbox9" <?php
+              if ($kitchen["windowStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <span class="slider round"></span>
             </label>
           </div>
@@ -337,15 +359,15 @@ session_start();
         <div class="lights livLights">
           <h3>Light</h3>
           <div class="slidebutton">
-          <?php
-              $sql = "SELECT * FROM `bedroom` where `bedroomId` =1";
-              $queryBedroom = $db->prepare($sql);
-              $queryBedroom->execute();
-              $bedroom = $queryBedroom->fetch(PDO::FETCH_ASSOC);
+            <?php
+            $sql = "SELECT * FROM `bedroom` where `bedroomId` =1";
+            $queryBedroom = $db->prepare($sql);
+            $queryBedroom->execute();
+            $bedroom = $queryBedroom->fetch(PDO::FETCH_ASSOC);
 
-              ?>
+            ?>
             <label class="switch">
-            <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" <?php
+              <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" <?php
               if ($bedroom["lightStatus"] == 1) {
                 echo "checked";
 
@@ -361,7 +383,14 @@ session_start();
           <h3>Windows</h3>
           <div class="slidebutton">
             <label class="switch switch1">
-              <input type="checkbox" />
+              <input onClick="s10()" type="checkbox" name="checkbox10" id="checkbox10" <?php
+              if ($bedroom["windowStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <span class="slider round"></span>
             </label>
           </div>

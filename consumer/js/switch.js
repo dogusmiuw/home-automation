@@ -19,7 +19,7 @@ function s1() {
     console.log("csdjfks");
     // AJAX ile HTTP isteği gönderme
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "change-status.php", true);
+    xhr.open("POST", "change-liv-light.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -43,7 +43,7 @@ function s2() {
     console.log("csdjfks");
     // AJAX ile HTTP isteği gönderme
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "change-bedroom.php", true);
+    xhr.open("POST", "change-bed-light.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -67,7 +67,7 @@ function s3() {
     console.log("csdjfks");
     // AJAX ile HTTP isteği gönderme
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", "change-kitchen.php", true);
+    xhr.open("POST", "change-kit-light.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
@@ -92,6 +92,99 @@ function s4() {
     // AJAX ile HTTP isteği gönderme
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "change-fan.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+        xhr.responseText;
+      }
+    };
+    var params = "onof=" + encodeURIComponent(checkStatus);
+    xhr.send(params);
+
+    // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+    // alert("Değişiklikler başarıyla kaydedildi.");
+  }
+}
+function s7() {
+  if (document.getElementById("checkbox7") != null) {
+    var checkStatus = document.getElementById("checkbox7").checked;
+
+    console.log("csdjfks");
+    // AJAX ile HTTP isteği gönderme
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "change-liv-tv.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+        xhr.responseText;
+      }
+    };
+    var params = "onof=" + encodeURIComponent(checkStatus);
+    xhr.send(params);
+
+    // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+    // alert("Değişiklikler başarıyla kaydedildi.");
+  }
+}
+function s8() {
+  if (document.getElementById("checkbox8") != null) {
+    var checkStatus = document.getElementById("checkbox8").checked;
+
+    console.log("csdjfks");
+    // AJAX ile HTTP isteği gönderme
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "change-liv-windows.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+        xhr.responseText;
+      }
+    };
+    var params = "onof=" + encodeURIComponent(checkStatus);
+    xhr.send(params);
+
+    // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+    // alert("Değişiklikler başarıyla kaydedildi.");
+  }
+}
+function s9() {
+  if (document.getElementById("checkbox9") != null) {
+    var checkStatus = document.getElementById("checkbox9").checked;
+
+    console.log("csdjfks");
+    // AJAX ile HTTP isteği gönderme
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "change-kit-windows.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        console.log(xhr.responseText);
+        // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+        xhr.responseText;
+      }
+    };
+    var params = "onof=" + encodeURIComponent(checkStatus);
+    xhr.send(params);
+
+    // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+    // alert("Değişiklikler başarıyla kaydedildi.");
+  }
+}
+
+function s10() {
+  if (document.getElementById("checkbox10") != null) {
+    var checkStatus = document.getElementById("checkbox10").checked;
+
+    console.log("csdjfks");
+    // AJAX ile HTTP isteği gönderme
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "change-bed-windows.php", true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
