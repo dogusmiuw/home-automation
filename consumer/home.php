@@ -202,15 +202,45 @@
       <div onload="onpageload()" class="switches2">
         <fieldset class="switchess2">
           <h2 style="left: 95px; top: -50px">Fan Speed!</h2>
-          <input type="radio" id="radio1-1" onClick="s5(25)" name="radio" />
+          <input type="radio" id="radio1-1" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==1) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(25)" />
           <label for="radio1-1">1</label>
-          <input type="radio" id="radio1-2" onClick="s5(35)" name="radio" />
+          <input type="radio" id="radio1-2" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==2) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(35)" />
           <label for="radio1-2">2</label>
-          <input type="radio" id="radio1-3" onClick="s5(55)" name="radio" />
+          <input type="radio" id="radio1-3" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==3) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(55)" />
           <label for="radio1-3">3</label>
-          <input type="radio" id="radio1-4" onClick="s5(75)" name="radio" />
+          <input type="radio" id="radio1-4" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==4) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(75)" />
           <label for="radio1-4">4</label>
-          <input type="radio" id="radio1-5" onClick="s5(90)" name="radio" />
+          <input type="radio" id="radio1-5" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==5) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(90)" />
           <label for="radio1-5">5</label>
         </fieldset>
       </div>
