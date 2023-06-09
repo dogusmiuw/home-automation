@@ -179,8 +179,22 @@
               }
               ?> />
               <br />
+              <?php
+              $sql = "SELECT * FROM `temperature` where `roomId` =1";
+              $queryFan = $db->prepare($sql);
+              $queryFan->execute();
+              $fan = $queryFan->fetch(PDO::FETCH_ASSOC);
+
+              ?>
               <h1>FAN</h1>
-              <input onClick="fan()" type="checkbox" name="checkbox5" id="checkbox5" />
+              <input onClick="s4()" type="checkbox" name="checkbox4" id="checkbox4" <?php
+              if ($fan["fanStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
             </div>
           </fieldset>
         </div>
