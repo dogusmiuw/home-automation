@@ -270,10 +270,24 @@ session_start();
       <h1 class="title">Manage kitchen devices</h1>
       <div class="coloumns">
         <div class="lights livLights">
+        <?php
+              $sql = "SELECT * FROM `kitchen` where `kitchenId` =1";
+              $queryKitchen = $db->prepare($sql);
+              $queryKitchen->execute();
+              $kitchen = $queryKitchen->fetch(PDO::FETCH_ASSOC);
+
+              ?>
           <h3>Light</h3>
           <div class="slidebutton">
             <label class="switch">
-              <input type="checkbox" checked="true;" />
+            <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" <?php
+              if ($kitchen["lightStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <span class="slider round"></span>
             </label>
           </div>
@@ -323,8 +337,22 @@ session_start();
         <div class="lights livLights">
           <h3>Light</h3>
           <div class="slidebutton">
+          <?php
+              $sql = "SELECT * FROM `bedroom` where `bedroomId` =1";
+              $queryBedroom = $db->prepare($sql);
+              $queryBedroom->execute();
+              $bedroom = $queryBedroom->fetch(PDO::FETCH_ASSOC);
+
+              ?>
             <label class="switch">
-              <input type="checkbox" />
+            <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" <?php
+              if ($bedroom["lightStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <span class="slider round"></span>
             </label>
           </div>

@@ -135,7 +135,7 @@
             <h2 style="left: 50px">Smart Switch!</h2>
             <div class="center center1">
               <h1>Living Room</h1>
-            
+
               <input onClick="s1()" type="checkbox" name="checkbox1" id="checkbox1" <?php
               if ($living["lightStatus"] == 1) {
                 echo "checked";
@@ -145,11 +145,39 @@
               }
               ?> />
               <br />
+              <?php
+              $sql = "SELECT * FROM `bedroom` where `bedroomId` =1";
+              $queryBedroom = $db->prepare($sql);
+              $queryBedroom->execute();
+              $bedroom = $queryBedroom->fetch(PDO::FETCH_ASSOC);
+
+              ?>
               <h1>Bedroom</h1>
-              <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" />
+              <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" <?php
+              if ($bedroom["lightStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <br />
+              <?php
+              $sql = "SELECT * FROM `kitchen` where `kitchenId` =1";
+              $queryKitchen = $db->prepare($sql);
+              $queryKitchen->execute();
+              $kitchen = $queryKitchen->fetch(PDO::FETCH_ASSOC);
+
+              ?>
               <h1>Kitchen</h1>
-              <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" />
+              <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" <?php
+              if ($kitchen["lightStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <br />
               <h1>FAN</h1>
               <input onClick="fan()" type="checkbox" name="checkbox5" id="checkbox5" />

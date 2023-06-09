@@ -47,17 +47,63 @@ function s1() {
 
 
 function s2() {
-  btn = "sw2=1";
-  if (document.getElementById("checkbox2").checked == true) btn = "sw2=1";
-  else btn = "sw2=0";
-  websock.send(btn);
+  if (document.getElementById('checkbox2') != null) {
+    
+    var checkStatus = document.getElementById("checkbox2").checked;
+    
+  
+    
+      console.log('csdjfks')
+      // AJAX ile HTTP isteği gönderme
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'change-bedroom.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function () {
+        
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          
+          console.log(xhr.responseText);
+          // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+          xhr.responseText;
+        }
+      };
+      var params =
+        "onof=" + encodeURIComponent(checkStatus);
+         xhr.send(params);
+  
+      // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+      // alert("Değişiklikler başarıyla kaydedildi.");
+    };
 }
 
 function s3() {
-  btn = "sw3=1";
-  if (document.getElementById("checkbox3").checked == true) btn = "sw3=1";
-  else btn = "sw3=0";
-  websock.send(btn);
+  if (document.getElementById('checkbox3') != null) {
+    
+    var checkStatus = document.getElementById("checkbox3").checked;
+    
+  
+    
+      console.log('csdjfks')
+      // AJAX ile HTTP isteği gönderme
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'change-kitchen.php', true);
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.onreadystatechange = function () {
+        
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          
+          console.log(xhr.responseText);
+          // İstek tamamlandıktan sonra geri dönen yanıtı işleyebilirsiniz
+          xhr.responseText;
+        }
+      };
+      var params =
+        "onof=" + encodeURIComponent(checkStatus);
+         xhr.send(params);
+  
+      // Başarılı bir şekilde değişiklikler yapıldıktan sonra kullanıcıya geri bildirim verebilirsiniz.
+      // alert("Değişiklikler başarıyla kaydedildi.");
+    };
 }
 
 function s4() {
