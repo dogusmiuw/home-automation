@@ -1,13 +1,14 @@
 <?php
-/*
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "web-proje";
-$conn = mysqli_connect($servername, $username, $password, $dbname);
+$dbname = "home_auto";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
 if (!$conn) {
-die("Could not connect to database: " . mysqli_connect_error());
-}*/
+    die("Could not connect to database: " . mysqli_connect_error());
+}
 ?>
 <!doctype html>
 <html lang="en">
