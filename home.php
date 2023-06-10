@@ -63,7 +63,7 @@
                                 <?php
                             }
                         } else {
-                            echo "Sonuç bulunamadı.";
+                            echo "<p>No houses.</p>";
                         }
                         ?>
                     </div>

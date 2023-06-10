@@ -36,13 +36,13 @@
                                     <p><i class="fs-4 text-danger fa-solid fa-temperature-quarter"></i><span
                                             class="fs-5">
                                             <?= $row["room_temp"] ?>°C</span></p>
-                                    <p><i class="fs-4 text-warning fa-solid fa-lightbulb"></i><span class="fs-5">
-                                        <?php 
-                                            $room_id = $row["id"];
+
+                                            <?php 
+                                            $room_id = $row["room_id"];
                                             $device_type = "light";
                                             
                                             // SQL sorgusu için hazırlık yap
-                                            $sql2 = "SELECT * FROM devices WHERE roomId = ? AND device_type = ?";
+                                            $sql2 = "SELECT * FROM devices WHERE room_id = ? AND device_type = ?";
                                             $stmt = $conn->prepare($sql2);
                                             
                                             // Değişkenleri bağla
@@ -54,6 +54,7 @@
 
                                             $row2 = $result2->fetch_assoc();
                                         ?>
+                                    <p><i class="fs-4 <?= $row2["stat"] == "on" ? "text-warning" : "" ?> fa-solid fa-lightbulb"></i><span class="fs-5">
                                             <?= ucfirst($row2["stat"]) ?></span>
                                     </p>
                                 </div>
@@ -63,7 +64,7 @@
                     <?php
                             }
                         } else {
-                            echo "Sonuç bulunamadı.";
+                            echo "<p>No rooms.</p>";
                         }
                         ?>
                 </div>

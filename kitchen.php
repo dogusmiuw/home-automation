@@ -8,10 +8,10 @@
 <div class="container">
     <div class="row container-row mt-5">
 <?php
-            $room_id = 3;
+            $room_id = 2;
             $device_type = "light";
             // SQL sorgusu için hazırlık yap
-            $sql = "SELECT * FROM devices WHERE roomId = ? AND device_type = ?";
+            $sql = "SELECT * FROM devices WHERE room_id = ? AND device_type = ?";
             $stmt = $conn->prepare($sql);
             
             // Değişkenleri bağla

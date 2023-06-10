@@ -11,7 +11,7 @@
             $room_id = 1;
             $device_type = "light";
             // SQL sorgusu için hazırlık yap
-            $sql = "SELECT * FROM devices WHERE roomId = ? AND device_type = ?";
+            $sql = "SELECT * FROM devices WHERE room_id = ? AND device_type = ?";
             $stmt = $conn->prepare($sql);
             
             // Değişkenleri bağla
