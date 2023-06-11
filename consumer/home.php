@@ -135,7 +135,7 @@
             <h2 style="left: 50px">Smart Switch!</h2>
             <div class="center center1">
               <h1>Living Room</h1>
-            
+
               <input onClick="s1()" type="checkbox" name="checkbox1" id="checkbox1" <?php
               if ($living["lightStatus"] == 1) {
                 echo "checked";
@@ -145,14 +145,56 @@
               }
               ?> />
               <br />
+              <?php
+              $sql = "SELECT * FROM `bedroom` where `bedroomId` =1";
+              $queryBedroom = $db->prepare($sql);
+              $queryBedroom->execute();
+              $bedroom = $queryBedroom->fetch(PDO::FETCH_ASSOC);
+
+              ?>
               <h1>Bedroom</h1>
-              <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" />
+              <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" <?php
+              if ($bedroom["lightStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <br />
+              <?php
+              $sql = "SELECT * FROM `kitchen` where `kitchenId` =1";
+              $queryKitchen = $db->prepare($sql);
+              $queryKitchen->execute();
+              $kitchen = $queryKitchen->fetch(PDO::FETCH_ASSOC);
+
+              ?>
               <h1>Kitchen</h1>
-              <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" />
+              <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" <?php
+              if ($kitchen["lightStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
               <br />
+              <?php
+              $sql = "SELECT * FROM `temperature` where `roomId` =1";
+              $queryFan = $db->prepare($sql);
+              $queryFan->execute();
+              $fan = $queryFan->fetch(PDO::FETCH_ASSOC);
+
+              ?>
               <h1>FAN</h1>
-              <input onClick="fan()" type="checkbox" name="checkbox5" id="checkbox5" />
+              <input onClick="s4()" type="checkbox" name="checkbox4" id="checkbox4" <?php
+              if ($fan["fanStatus"] == 1) {
+                echo "checked";
+
+              } else {
+                echo "";
+              }
+              ?> />
             </div>
           </fieldset>
         </div>
@@ -160,15 +202,45 @@
       <div onload="onpageload()" class="switches2">
         <fieldset class="switchess2">
           <h2 style="left: 95px; top: -50px">Fan Speed!</h2>
-          <input type="radio" id="radio1-1" onClick="s5(25)" name="radio" />
+          <input type="radio" id="radio1-1" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==1) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(25)" />
           <label for="radio1-1">1</label>
-          <input type="radio" id="radio1-2" onClick="s5(35)" name="radio" />
+          <input type="radio" id="radio1-2" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==2) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(35)" />
           <label for="radio1-2">2</label>
-          <input type="radio" id="radio1-3" onClick="s5(55)" name="radio" />
+          <input type="radio" id="radio1-3" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==3) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(55)" />
           <label for="radio1-3">3</label>
-          <input type="radio" id="radio1-4" onClick="s5(75)" name="radio" />
+          <input type="radio" id="radio1-4" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==4) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(75)" />
           <label for="radio1-4">4</label>
-          <input type="radio" id="radio1-5" onClick="s5(90)" name="radio" />
+          <input type="radio" id="radio1-5" <?php
+          if ($fan["fanStatus"] == 1 && $fan["fanSpeed"] ==5) {
+            echo "checked";
+          } else {
+            echo "";
+          }
+          ?> name="radio" onClick="s5(90)" />
           <label for="radio1-5">5</label>
         </fieldset>
       </div>
