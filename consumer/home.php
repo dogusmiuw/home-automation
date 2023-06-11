@@ -134,7 +134,7 @@
           <fieldset class="switchess1">
             <h2 style="left: 50px">Smart Switch!</h2>
             <div class="center center1">
-              <h1>Living Room</h1>
+              <h1 id= "h1LivLight">Living Room Light</h1>
 
               <input onClick="s1()" type="checkbox" name="checkbox1" id="checkbox1" <?php
               if ($living["lightStatus"] == 1) {
@@ -152,7 +152,7 @@
               $bedroom = $queryBedroom->fetch(PDO::FETCH_ASSOC);
 
               ?>
-              <h1>Bedroom</h1>
+              <h1 id= "h1BedLight">Bedroom Light</h1>
               <input onClick="s2()" type="checkbox" name="checkbox2" id="checkbox2" <?php
               if ($bedroom["lightStatus"] == 1) {
                 echo "checked";
@@ -169,7 +169,7 @@
               $kitchen = $queryKitchen->fetch(PDO::FETCH_ASSOC);
 
               ?>
-              <h1>Kitchen</h1>
+              <h1 id= "h1KitLight">Kitchen Light</h1>
               <input onClick="s3()" type="checkbox" name="checkbox3" id="checkbox3" <?php
               if ($kitchen["lightStatus"] == 1) {
                 echo "checked";
@@ -186,7 +186,7 @@
               $fan = $queryFan->fetch(PDO::FETCH_ASSOC);
 
               ?>
-              <h1>FAN</h1>
+              <h1 id="h1Fan">FAN</h1>
               <input onClick="s4()" type="checkbox" name="checkbox4" id="checkbox4" <?php
               if ($fan["fanStatus"] == 1) {
                 echo "checked";
@@ -255,9 +255,18 @@
       <div class="warnings">
         <div class="notification green">
           <div class="info">
-            <h1>
-              Your electricity consumption is 1 kWh less than last month.
-            </h1>
+          <?php
+              $sql = "SELECT * FROM `alerts` where `alertId` = 1";
+              $queryAlerts = $db->prepare($sql);
+              $queryAlerts->execute();
+              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
+
+              ?>
+              <h1>
+              <?php 
+               echo $alerts["alertText"];
+              ?>
+            
           </div>
           <div class="icon">
             <i class="fa-solid fa-check"></i>
@@ -267,7 +276,17 @@
       <div class="warnings">
         <div class="notification red">
           <div class="info">
-            <h1>Garden door is unlocked.</h1>
+          <?php
+              $sql = "SELECT * FROM `alerts` where `alertId` = 2";
+              $queryAlerts = $db->prepare($sql);
+              $queryAlerts->execute();
+              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
+
+              ?>
+              <h1>
+              <?php 
+               echo $alerts["alertText"];
+              ?>
           </div>
           <div class="icon">
             <i class="fa-solid fa-circle-xmark fa-beat" style="color: #ffffff"></i>
@@ -277,7 +296,17 @@
       <div class="warnings">
         <div class="notification blue">
           <div class="info">
-            <h1>Tomorrow will be rainy be careful.</h1>
+          <?php
+              $sql = "SELECT * FROM `alerts` where `alertId` = 3";
+              $queryAlerts = $db->prepare($sql);
+              $queryAlerts->execute();
+              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
+
+              ?>
+              <h1>
+              <?php 
+                echo $alerts["alertText"];
+              ?>
           </div>
           <div class="icon">
             <i class="fa-solid fa-triangle-exclamation fa-flip"></i>
@@ -287,7 +316,17 @@
       <div class="warnings">
         <div class="notification purple">
           <div class="info">
-            <h1>Your livingroom light is working for 11 hours.</h1>
+          <?php
+              $sql = "SELECT * FROM `alerts` where `alertId` = 4";
+              $queryAlerts = $db->prepare($sql);
+              $queryAlerts->execute();
+              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
+
+              ?>
+              <h1>
+              <?php 
+               echo $alerts["alertText"];
+              ?>
           </div>
           <div class="icon">
             <i class="fa-regular fa-bell fa-shake"></i>
