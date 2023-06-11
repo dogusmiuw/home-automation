@@ -213,17 +213,54 @@ input:checked[type="checkbox"]:after {
   left: 130px;
 }
 .center h1 {
-  margin: 20px, 0, 0, 35px;
-  padding: 0;
-  right: 1%;
+  right: -15%;
   font-family: sans-serif;
   font-size: 16px;
-  padding: 22px 0;
+  padding:32px 0;
   text-transform: uppercase;
   letter-spacing: 1px;
   display: inline-block;
   position: absolute;
-  align: right;
+}
+#h1LivLight{
+  right: -19%;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding:32px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: absolute;
+}
+#h1BedLight{
+  right: -10%;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding:32px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: absolute;
+}
+#h1KitLight{
+  right: -7%;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding:32px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: absolute;
+}
+#h1Fan{
+  right: 26%;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding:32px 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: absolute;
 }
 h5 {
   position: absolute;
