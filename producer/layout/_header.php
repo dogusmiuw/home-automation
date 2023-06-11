@@ -1,5 +1,11 @@
 <?php
 
+if(!(isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"] == true)) {
+    echo "<p>You are not logged in.</p>"."<br>";
+    echo "<a href='../index.php'>Go back to home page.</a>";
+    die();
+}
+
 $servername = "localhost";
 $username = "root";
 $password = "";

@@ -1,13 +1,14 @@
 <?php
-/*
+
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "web-proje";
+$dbname = "home_auto";
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+
 if (!$conn) {
-die("Could not connect to database: " . mysqli_connect_error());
-}*/
+    die("Could not connect to database: " . mysqli_connect_error());
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,8 +37,8 @@ die("Could not connect to database: " . mysqli_connect_error());
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-position: center;
-            
-            display:grid;
+
+            display: grid;
             place-items: center;
         }
 
@@ -64,9 +65,11 @@ die("Could not connect to database: " . mysqli_connect_error());
             .col {
                 height: 100%;
             }
+
             .img-fluid {
                 height: 100%;
             }
+
             .col:nth-child(2) {
                 padding: 1rem 0;
             }
@@ -77,15 +80,18 @@ die("Could not connect to database: " . mysqli_connect_error());
             .container {
                 width: 100vw;
             }
+
             .login-div {
                 flex-direction: column;
             }
+
             .img-fluid {
                 width: 100%;
                 height: 250px;
                 border-bottom-left-radius: 0;
                 margin-bottom: 1rem;
             }
+
             form {
                 width: 90%;
                 margin-bottom: 1rem;
@@ -95,31 +101,39 @@ die("Could not connect to database: " . mysqli_connect_error());
 </head>
 
 <body>
-<?php
-$users = array(
-    array("consumer", "consumer@mail.com", "12345"),
-    array("producer", "producer@mail.com", "12345")
-);
+    <?php
 
-$status = "";
+    // $users = array(
+    //     array("consumer", "consumer@mail.com", "12345"),
+    //     array("producer", "producer@mail.com", "12345")
+    // );
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    for ($i = 0; $i < count($users); $i++) {
+    $status = "";
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $user_type = $_POST["user_type"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $res = $conn->query($sql);
+        $row = $res->fetch_assoc();
+
         if (
-            in_array(
-                $_POST["email"],
-                $users[$i]
-            ) &&
-            $_POST["user_type"] == $users[$i][0] &&
-            $_POST["password"] == $users[$i][2]
+            $user_type == $row["user_type"] &&
+            $email == $row["email"] &&
+            $password == $row["password"]
         ) {
+            session_start();
+            $_SESSION["is_logged_in"] = true;
+            $_SESSION["logged_user_id"] = $row["user_id"];
+            $_SESSION["logged_email"] = $email;
             $_POST["user_type"] == "producer" ? header("Location: producer/home.php") : header("Location: consumer/home.html");
         } else {
             $status = "Login information is incorrect.";
         }
     }
-}
-?>
+    ?>
     <div class="container d-flex justify-content-center">
         <div class="login-div row align-items-center bg-light">
             <div class="col" style="padding: 0">
@@ -130,7 +144,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <form action="" method="POST">
                     <div class="mb-3">
                         <label for="user_type" class="form-label">User type</label>
-                        <select class="form-select" style="background-color: white !important;" aria-label="User type" id="user_type" name="user_type" required>
+                        <select class="form-select" style="background-color: white !important;" aria-label="User type"
+                            id="user_type" name="user_type" required>
                             <option selected>Select user type</option>
                             <option value="consumer">Consumer</option>
                             <option value="producer">Producer</option>
@@ -138,21 +153,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="johndoe@example.com" required>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="johndoe@example.com" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="********"
+                            required>
                     </div>
-                    <button type="submit" style="background-color: #846545; color: white;" class="btn w-100">Login</button>
-                    <p class="text-danger"><?= $status ?></p>
+                    <button type="submit" style="background-color: #846545; color: white;"
+                        class="btn w-100">Login</button>
+                    <p class="text-danger">
+                        <?= $status ?>
+                    </p>
                     <a class="d-block link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                       href="register.php" style="color:#846545;">
+                        href="register.php" style="color:#846545;">
                         Register
                     </a>
                 </form>
             </div>
         </div>
     </div>
-<script src="js/loginFormAutoFill.js"></script>
-<?php include 'producer/layout/_footer.php' ?>
+    <script src="js/loginFormAutoFill.js"></script>
+    <?php include 'producer/layout/_footer.php' ?>
