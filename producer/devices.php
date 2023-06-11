@@ -66,9 +66,13 @@
                                                     $room_row = $room_result->fetch_assoc();
                                         ?>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <?= $room_row["room_name"] ?><a href="#" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
+                                            <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)" data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
                                         </li>
-                                        <?php }} ?>
+                                        <?php }} else {
+                                            echo "<p>There is no device in that type.</p>";
+                                        }
+                                        
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -98,9 +102,13 @@
                                                     $room_row = $room_result->fetch_assoc();
                                         ?>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <?= $room_row["room_name"] ?><a href="#" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
+                                            <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)" data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
                                         </li>
-                                        <?php }} ?>
+                                        <?php }} else {
+                                            echo "<p>There is no device in that type.</p>";
+                                        }
+                                        
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -130,9 +138,13 @@
                                                     $room_row = $room_result->fetch_assoc();
                                         ?>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <?= $room_row["room_name"] ?><a href="#" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
+                                            <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)" data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
                                         </li>
-                                        <?php }} ?>
+                                        <?php }} else {
+                                            echo "<p>There is no device in that type.</p>";
+                                        }
+                                        
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -162,9 +174,85 @@
                                                     $room_row = $room_result->fetch_assoc();
                                         ?>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <?= $room_row["room_name"] ?><a href="#" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
+                                            <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)" data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
                                         </li>
-                                        <?php }} ?>
+                                        <?php }} else {
+                                            echo "<p>There is no device in that type.</p>";
+                                        }
+                                        
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3 device-group">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Ovens</h4>
+                                    <?php
+
+                                    $device_type = "oven";
+                                    
+                                    $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                    
+                                    // Sorguyu çalıştır ve sonuçları al
+                                    $result = $conn->query($sql);
+                                    
+                                    ?>
+                                    <ul class="list-group">
+                                        <?php
+                                            if ($result->num_rows > 0) {
+                                                // Her bir satırı döngüyle al
+                                                while ($row = $result->fetch_assoc()) {
+                                                    $room_id = $row["room_id"];
+                                                    $room_sql = "SELECT * FROM rooms WHERE room_id = $room_id";
+                                                    $room_result = $conn->query($room_sql);
+                                                    $room_row = $room_result->fetch_assoc();
+                                        ?>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)" data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
+                                        </li>
+                                        <?php }} else {
+                                            echo "<p>There is no device in that type.</p>";
+                                        }
+                                        
+                                        ?>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3 mb-3 device-group">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4>Other</h4>
+                                    <?php
+
+                                    $device_type = "other";
+                                    
+                                    $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                    
+                                    // Sorguyu çalıştır ve sonuçları al
+                                    $result = $conn->query($sql);
+                                    
+                                    ?>
+                                    <ul class="list-group">
+                                        <?php
+                                            if ($result->num_rows > 0) {
+                                                // Her bir satırı döngüyle al
+                                                while ($row = $result->fetch_assoc()) {
+                                                    $room_id = $row["room_id"];
+                                                    $room_sql = "SELECT * FROM rooms WHERE room_id = $room_id";
+                                                    $room_result = $conn->query($room_sql);
+                                                    $room_row = $room_result->fetch_assoc();
+                                        ?>
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                                            <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)" data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i class="fa-solid fa-minus"></i></a>
+                                        </li>
+                                        <?php }} else {
+                                            echo "<p>There is no device in that type.</p>";
+                                        }
+                                        
+                                        ?>
                                     </ul>
                                 </div>
                             </div>
@@ -199,5 +287,5 @@
     ?>
 
 
-    <!-- <script src="js/removeDevice.js"></script> -->
+    <script src="../js/device_form.js"></script>
 <?php include 'layout/_footer.php' ?>

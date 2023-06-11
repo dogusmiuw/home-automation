@@ -138,14 +138,6 @@ if (!$conn) {
         }
     }
 
-    function printStat() {
-        var_dump($_SESSION["is_logged_in"]);
-            echo "<br>";
-            var_dump($_SESSION["logged_user_id"]);
-            echo "<br>";
-            var_dump($_SESSION["logged_email"]);
-            echo "<br>";
-    }
     ?>
     <div class="container d-flex justify-content-center">
         <div class="login-div row align-items-center bg-light">
