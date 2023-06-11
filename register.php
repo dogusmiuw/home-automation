@@ -1,3 +1,17 @@
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "home_auto";
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+if (!$conn) {
+    die("Could not connect to database: " . mysqli_connect_error());
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -25,8 +39,8 @@
             background-attachment: fixed;
             background-repeat: no-repeat;
             background-position: center;
-            
-            display:grid;
+
+            display: grid;
             place-items: center;
         }
 
@@ -54,9 +68,11 @@
             .col {
                 height: 100%;
             }
+
             .img-fluid {
                 height: 100%;
             }
+
             .col:nth-child(2) {
                 padding: 1rem 0;
             }
@@ -67,9 +83,11 @@
             .container {
                 width: 100vw;
             }
+
             .login-div {
                 flex-direction: column;
             }
+
             .img-fluid {
                 width: 100%;
                 height: 250px;
@@ -77,6 +95,7 @@
                 border-top-right-radius: 10px;
                 margin-bottom: 1rem;
             }
+
             form {
                 width: 90%;
                 margin-bottom: 1rem;
@@ -84,6 +103,49 @@
         }
     </style>
 </head>
+
+<?php
+    $status = "";
+
+    if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        $name = $_POST["name"];
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        $user_type = $_POST["user_type"];
+
+        $check_sql = "SELECT email FROM users";
+        $res = $conn->query($check_sql);
+        $arr = array();
+
+        if ($res->num_rows > 0) {
+            while ($row = $res->fetch_assoc()) {
+                $arr[] = $row['email'];
+            }
+        }
+        
+        // var_dump($arr);
+        // die();
+
+        if (in_array($email, $arr)) {
+            $status = "<p class='text-danger'>"."This e-mail has already been used."."</p>";
+        } else {
+            $sql = "INSERT INTO users VALUES(NULL, ?, ?, ?, ?);";
+
+            $stmt = $conn->prepare($sql);
+
+            $stmt->bind_param("ssss", $name, $email, $password, $user_type);
+
+            $stmt->execute();
+
+            $stmt->close();
+            $conn->close();
+
+            $status = "<p class='text-success'>"."Profile succesfully created."."</p>";
+        }
+
+
+    }
+    ?>
 
 <body>
     <div class="container d-flex justify-content-center">
@@ -96,7 +158,8 @@
                 <form action="" method="POST">
                     <div class="mb-3">
                         <label for="user_type" class="form-label">User type</label>
-                        <select class="form-select" style="background-color: white !important;" aria-label="User type" id="user_type" name="user_type" required>
+                        <select class="form-select" style="background-color: white !important;" aria-label="User type"
+                            id="user_type" name="user_type" required>
                             <option selected>Select user type</option>
                             <option value="consumer">Consumer</option>
                             <option value="producer">Producer</option>
@@ -108,19 +171,24 @@
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="johndoe@example.com" required>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder="johndoe@example.com" required>
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="********" required>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="********"
+                            required>
                     </div>
-                    <button type="submit" style="background-color: #846545; color: white;" class="btn w-100">Register</button>
+                    <button type="submit" style="background-color: #846545; color: white;"
+                        class="btn w-100">Register</button>                    
+                        <?= $status ?>
                     <a class="mt-3 d-block link-offset-2-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover"
-                       href="index.php" style="color:#846545;">
+                        href="index.php" style="color:#846545;">
                         Login
                     </a>
                 </form>
             </div>
         </div>
     </div>
-<?php include 'producer/layout/_footer.php' ?>
+    
+    <?php include 'producer/layout/_footer.php' ?>

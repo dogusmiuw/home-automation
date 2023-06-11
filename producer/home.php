@@ -24,7 +24,7 @@
             <div class="card"> <!-- nav -->
                 <div class="card-body">
                     <div class="list-group">
-                        <a href="index.php" class="btn btn-light list-group-item list-group-item-action text-danger"
+                        <a href="../index.php?logout=1" class="btn btn-light list-group-item list-group-item-action text-danger"
                             role="button">Log out</a>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-if(!(isset($_SESSION["is_logged_in"]) && $_SESSION["is_logged_in"] == true)) {
+if($_SESSION["is_logged_in"] == false) {
     echo "<p>You are not logged in.</p>"."<br>";
     echo "<a href='../index.php'>Go back to home page.</a>";
     die();
@@ -10,7 +11,7 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "home_auto";
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
 if (!$conn) {
     die("Could not connect to database: " . mysqli_connect_error());

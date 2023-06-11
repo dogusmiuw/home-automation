@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+if(isset($_GET["logout"]) && $_GET["logout"] == 1) {
+    session_unset();
+    $_SESSION["is_logged_in"] = false;
+}
 
 $servername = "localhost";
 $username = "root";
@@ -9,6 +15,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Could not connect to database: " . mysqli_connect_error());
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -102,12 +110,7 @@ if (!$conn) {
 
 <body>
     <?php
-
-    // $users = array(
-    //     array("consumer", "consumer@mail.com", "12345"),
-    //     array("producer", "producer@mail.com", "12345")
-    // );
-
+    // printStat();
     $status = "";
 
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -124,14 +127,24 @@ if (!$conn) {
             $email == $row["email"] &&
             $password == $row["password"]
         ) {
-            session_start();
             $_SESSION["is_logged_in"] = true;
             $_SESSION["logged_user_id"] = $row["user_id"];
             $_SESSION["logged_email"] = $email;
-            $_POST["user_type"] == "producer" ? header("Location: producer/home.php") : header("Location: consumer/home.html");
+            // printStat();
+            // die();
+            $_POST["user_type"] == "producer" ? header("Location: producer/home.php") : header("Location: consumer/home.php");
         } else {
             $status = "Login information is incorrect.";
         }
+    }
+
+    function printStat() {
+        var_dump($_SESSION["is_logged_in"]);
+            echo "<br>";
+            var_dump($_SESSION["logged_user_id"]);
+            echo "<br>";
+            var_dump($_SESSION["logged_email"]);
+            echo "<br>";
     }
     ?>
     <div class="container d-flex justify-content-center">

@@ -24,7 +24,7 @@
                     <a class="nav-link fs-3 <?= $page_name == 'About' ? 'active' : '' ?>" href="about.php">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fs-3" style="border: 1px solid white;" href="index.php">Log out</a>
+                    <a class="nav-link fs-3" style="border: 1px solid white;" href="../index.php?logout=1">Log out</a>
                 </li>
             </ul>
         </div>
