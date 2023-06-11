@@ -1,5 +1,5 @@
-<?php include '_header.php' ?>
-<?php include '_navbar.php' ?>
+<?php include 'layout/_header.php' ?>
+<?php include 'layout/_navbar.php' ?>
 <style>
     .deviceInRoomCard:hover {
         cursor: pointer;
@@ -7,8 +7,8 @@
 </style>
 <div class="container">
     <div class="row container-row mt-5">
-        <?php
-            $room_id = 1;
+<?php
+            $room_id = 2;
             $device_type = "light";
             // SQL sorgusu için hazırlık yap
             $sql = "SELECT * FROM devices WHERE room_id = ? AND device_type = ?";
@@ -26,7 +26,7 @@
         <!--            <div class="col-9">-->
         <div class="card"> <!-- main -->
             <div class="card-body">
-                <h1>Living Room</h1>
+                <h1>Kitchen</h1>
                 <div class="row mb-3">
                     <div class="col-3 mb-3">
                         <div class="card deviceInRoomCard">
@@ -43,7 +43,7 @@
                         </div>
                     </div>
                     <?php 
-                        $device_type = "ac";
+                        $device_type = "oven";
 
                         $stmt->execute();
                         $result = $stmt->get_result();
@@ -53,33 +53,12 @@
                     <div class="col-3 mb-3">
                         <div class="card deviceInRoomCard">
                             <div class="card-body">
-                                <h4>AC</h4>
+                                <h4>Oven</h4>
                                 <p class="text-center">
-                                    <i id="ac" class="<?= $row["stat"] == "on" ? "text-primary fa-spin" : "" ?> fa-solid fa-fan" style="font-size:7rem;"></i>
+                                    <i id="oven" class="<?= $row["stat"] == "on" ? "text-danger" : "" ?> fa-solid fa-fire" style="font-size:7rem;"></i>
                                 </p>
                                 <p class="text-center">
-                                    <span id="acStatus" class="fs-5"><?= ucfirst($row["stat"]) ?></span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <?php 
-                        $device_type = "tv";
-
-                        $stmt->execute();
-                        $result = $stmt->get_result();
-
-                        $row = $result->fetch_assoc();
-                    ?>
-                    <div class="col-3 mb-3">
-                        <div class="card deviceInRoomCard">
-                            <div class="card-body">
-                                <h4>TV</h4>
-                                <p class="text-center">
-                                    <i id="tv" class="<?= $row["stat"] == "on" ? "text-primary-emphasis" : "" ?> fa-solid fa-tv" style="font-size:7rem;"></i>
-                                </p>
-                                <p class="text-center">
-                                    <span id="tvStatus" class="fs-5"><?= ucfirst($row["stat"]) ?></span>
+                                    <span id="ovenStatus" class="fs-5"><?= ucfirst($row["stat"]) ?></span>
                                 </p>
                             </div>
                         </div>
@@ -112,4 +91,4 @@
         <!--            </div>-->
     </div>
 </div>
-<?php include '_footer.php' ?>
+<?php include 'layout/_footer.php' ?>

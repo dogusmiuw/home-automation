@@ -32,7 +32,7 @@ if (!$conn) {
         }
 
         body {
-            background-image: url('consumer/images/background.jpg');
+            background-image: url('../consumer/images/background.jpg');
             background-size: cover;
             background-attachment: fixed;
             background-repeat: no-repeat;

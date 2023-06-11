@@ -1,5 +1,5 @@
-<?php include '_header.php' ?>
-<?php include '_navbar.php' ?>
+<?php include 'layout/_header.php' ?>
+<?php include 'layout/_navbar.php' ?>
 <style>
     .col-3.mb-3 > a > .card:hover{
         scale: 1.05;
@@ -74,4 +74,4 @@
     </div>
 </div>
 
-<?php include '_footer.php' ?>
+<?php include 'layout/_footer.php' ?>

@@ -1,5 +1,5 @@
-<?php include '_header.php' ?>
-    <?php include '_navbar.php' ?>
+<?php include 'layout/_header.php' ?>
+    <?php include 'layout/_navbar.php' ?>
     <div class="container">
         <div class="row container-row mt-5">
                 <div class="card"> <!-- main -->
@@ -19,4 +19,4 @@
         </div>
     </div>
 
-<?php include '_footer.php' ?>
+<?php include 'layout/_footer.php' ?>

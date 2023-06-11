@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_POST["user_type"] == $users[$i][0] &&
             $_POST["password"] == $users[$i][2]
         ) {
-            $_POST["user_type"] == "producer" ? header("Location: home.php") : header("Location: consumer/home.html");
+            $_POST["user_type"] == "producer" ? header("Location: producer/home.php") : header("Location: consumer/home.html");
         } else {
             $status = "Login information is incorrect.";
         }
@@ -155,4 +155,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
     </div>
 <script src="js/loginFormAutoFill.js"></script>
-<?php include '_footer.php' ?>
+<?php include 'producer/layout/_footer.php' ?>

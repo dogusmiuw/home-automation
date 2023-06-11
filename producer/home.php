@@ -1,4 +1,4 @@
-<?php include '_header.php' ?>
+<?php include 'layout/_header.php' ?>
 <style>
     .col-9 .col-3>.card:hover {
         scale: 1.05;
@@ -73,4 +73,4 @@
     </div>
 </div>
 
-<?php include '_footer.php' ?>
+<?php include 'layout/_footer.php' ?>
