@@ -77,7 +77,7 @@
     
     <section class="rooms" style="padding-top: 0">
       <div class="livingroom room-item" id="">
-        <h1 class="title" id="titleLiv">detailed analysis for living room</h1>
+        <h1 class="title" id="titleLiv">detailed analyzes for living room</h1>
         <div class="coloumns">
           <div id="chartContainer1" style="width: 45%; height: 300px;display: inline-block;"><?php include("graph.php") ?></div> 
           <div id="chartContainer2" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="kitchen room-item">
-        <h1 class="title">detailed analysis for kitchen</h1>
+        <h1 class="title">detailed analyzes for kitchen</h1>
         <div class="coloumns">
           <div id="chartContainer5" style="width: 45%; height: 300px;display: inline-block;"><?php include("graph.php") ?></div> 
           <div id="chartContainer6" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
@@ -95,7 +95,7 @@
         </div>
       </div>
       <div class="bedroom room-item" style="margin-bottom: 20rem">
-        <h1 class="title">detailed analysis for bedroom</h1>
+        <h1 class="title">detailed analyzes for bedroom</h1>
         <div class="coloumns">
           <div id="chartContainer9" style="width: 45%; height: 300px;display: inline-block;"><?php include("graph.php") ?></div> 
           <div id="chartContainer10" style="width: 45%; height: 300px;display: inline-block;"></div><br/>
@@ -115,7 +115,7 @@ var chart = new CanvasJS.Chart("chartContainer1", {
   margin: 100,
  },
  title: {
-    text: "Rooms Current Electricity Usage",
+    text: "Current Electricity Consumption(kW)",
   },
   animationEnabled:true,
   zoomEnabled:true,
@@ -124,7 +124,7 @@ var chart = new CanvasJS.Chart("chartContainer1", {
   backgroundColor:"#e0d6cc",
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	data: [{
-		type: "area", //change type to bar, line, area, pie, etc  
+		type: "bar", //change type to bar, line, area, pie, etc  
 		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
 	}]
 });
@@ -136,7 +136,7 @@ var chart = new CanvasJS.Chart("chartContainer2", {
   animationEnabled: true,
   backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Consumption kW",
+    text: "Electricity Consumption(kW)",
   },
   data: [
     {
@@ -153,7 +153,7 @@ var chart = new CanvasJS.Chart("chartContainer3", {
   animationEnabled: true,
   backgroundColor:"#e0d6cc",
   title: {
-    text: "Last 3 Months Electricity Bills For This Room",
+    text: "Electricity Bills($)",
   },
   axisX: {
     valueFormatString: "MMM",
@@ -220,8 +220,8 @@ var chart = new CanvasJS.Chart("chartContainer5", {
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	data: [{
     
-		type: "area", //change type to bar, line, area, pie, etc  
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+		type: "bar", //change type to bar, line, area, pie, etc  
+		dataPoints: <?php echo json_encode($dataPoints5, JSON_NUMERIC_CHECK); ?>
 	}]
 });
 chart.render();
@@ -232,7 +232,7 @@ var chart = new CanvasJS.Chart("chartContainer6", {
   animationEnabled: true,
   backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Consumption kW",
+    text: "Electricity Consumption(kW)",
   },
   data: [
     {
@@ -249,7 +249,7 @@ var chart = new CanvasJS.Chart("chartContainer7", {
   animationEnabled: true,
   backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Bills",
+    text: "Electricity Bills($)",
   },
   axisX: {
     valueFormatString: "MMM",
@@ -326,7 +326,7 @@ var chart = new CanvasJS.Chart("chartContainer9", {
   backgroundColor:"#e0d6cc",
  },
  title: {
-    text: "Rooms Current Electricity Usage",
+    text: "Current Electricity Consumption(kW)",
   },
   animationEnabled:true,
   height: 400,
@@ -335,8 +335,8 @@ var chart = new CanvasJS.Chart("chartContainer9", {
 	theme: "light2", // "light1", "light2", "dark1", "dark2"
 	data: [{
     
-		type: "area", //change type to bar, line, area, pie, etc  
-		dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+		type: "bar", //change type to bar, line, area, pie, etc  
+		dataPoints: <?php echo json_encode($dataPoints9, JSON_NUMERIC_CHECK); ?>
 	}]
 });
 chart.render();
@@ -347,7 +347,7 @@ var chart = new CanvasJS.Chart("chartContainer10", {
   animationEnabled: true,
   backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Consumption kW",
+    text: "Electricity Consumption(kW)",
   },
   data: [
     {
@@ -364,7 +364,7 @@ var chart = new CanvasJS.Chart("chartContainer11", {
   animationEnabled: true,
   backgroundColor:"#e0d6cc",
   title: {
-    text: "Electricity Bills",
+    text: "Electricity Bills($)",
   },
   axisX: {
     valueFormatString: "MMM",

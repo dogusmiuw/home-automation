@@ -1,33 +1,60 @@
 <?php
-
 $dataPoints = array();
-//Best practice is to create a separate file for handling connection to database
 try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
+    
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
-
-    $handle = $link->prepare('SELECT months, val from graphs');
+    
+    $handle = $link->prepare('SELECT device,sum(consumption) as cons FROM consumption WHERE roomId = 1');
     $handle->execute();
     $result = $handle->fetchAll(\PDO::FETCH_OBJ);
 
 
     foreach ($result as $row) {
-        array_push($dataPoints, array("label" => $row->months, "y" => $row->val));
+        array_push($dataPoints, array("label" => "Livingroom", "y" => $row->cons));
     }
     $link = null;
 } catch (\PDOException $ex) {
     print($ex->getMessage());
 }
 
+$dataPoints5 = array();
+try {
+    
+    $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
+    $handle = $link->prepare('SELECT device,sum(consumption) as cons1 FROM consumption WHERE roomId = 2');
+    $handle->execute();
+    $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+
+    foreach ($result as $row) {
+        array_push($dataPoints5, array("label" => "Kitchen", "y" => $row->cons1));
+    }
+    $link = null;
+} catch (\PDOException $ex) {
+    print($ex->getMessage());
+}
+
+$dataPoints9 = array();
+try {
+    
+    $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
+    $handle = $link->prepare('SELECT device,sum(consumption) as cons FROM consumption WHERE roomId = 3');
+    $handle->execute();
+    $result = $handle->fetchAll(\PDO::FETCH_OBJ);
+
+
+    foreach ($result as $row) {
+        array_push($dataPoints9, array("label" => "Bedroom", "y" => $row->cons));
+    }
+    $link = null;
+} catch (\PDOException $ex) {
+    print($ex->getMessage());
+}
 ?>
 <?php
-
 $dataPoints2 = array();
-//Best practice is to create a separate file for handling connection to database
 try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
+    
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT device, consumption from consumption where roomId = 1');
@@ -44,10 +71,7 @@ try {
 }
 
 $dataPoints6 = array();
-//Best practice is to create a separate file for handling connection to database
 try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT device, consumption from consumption where roomId = 2');
@@ -64,10 +88,7 @@ try {
 }
 
 $dataPoints10 = array();
-//Best practice is to create a separate file for handling connection to database
-try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
+try { 
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT device, consumption from consumption where roomId = 3');
@@ -87,10 +108,7 @@ try {
 <?php
 
 $dataPoints3 = array();
-//Best practice is to create a separate file for handling connection to database
-try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
+try {  
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT months, bill from bills where roomId = 1');
@@ -107,10 +125,7 @@ try {
 }
 
 $dataPoints7 = array();
-//Best practice is to create a separate file for handling connection to database
 try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT months, bill from bills where roomId = 2');
@@ -127,10 +142,7 @@ try {
 }
 
 $dataPoints11 = array();
-//Best practice is to create a separate file for handling connection to database
-try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
+try { 
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT months, bill from bills where roomId = 3');
@@ -150,10 +162,7 @@ try {
 <?php
 $dataPoints4 = array();
 $dataPoints4_ = array();
-//Best practice is to create a separate file for handling connection to database
 try {
-    // Creating a new connection.
-    // Replace your-hostname, your-db, your-username, your-password according to your database
     $link = new \PDO("mysql:host=localhost;dbname=web-programming", "root", "");
 
     $handle = $link->prepare('SELECT roomTemp,time_ FROM logs ORDER BY id DESC LIMIT 10  ');

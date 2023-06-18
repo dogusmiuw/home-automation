@@ -209,9 +209,9 @@ session_start();
                 </table>
               </div>
             </div>
-            <div id="DispRoomTemp">T : 32 °C </div>
+            <div id="DispRoomTemp">T : 17 °C </div>
             <div id="DispTempBoxL" class="DispTempBox">
-              <div id="DispTempL" class="DispTemp">25</div>
+              <div id="DispTempL" class="DispTemp">16</div>
               <div id="TempUnit">°C </div>
             </div>
           </div>
@@ -343,9 +343,9 @@ session_start();
                 </table>
               </div>
             </div>
-            <div id="DispRoomTemp">T : 29 °C </div>
+            <div id="DispRoomTemp">T : 26 °C </div>
             <div id="DispTempBoxB" class="DispTempBox">
-              <div id="DispTempB" class="DispTemp">25</div>
+              <div id="DispTempB" class="DispTemp">16</div>
               <div id="TempUnit">°C </div>
             </div>
           </div>

@@ -15,11 +15,11 @@
     };
 </script>
 
-<!-- <script>
+<script>
        setTimeout(() => {
             document.location.reload();
-        }, 30000);
-    </script> -->
+        }, 60000);
+    </script>
 
       <div id="menu" class="fas fa-bars"></div>
       <nav class="navbar">
