@@ -51,7 +51,7 @@ if (!$conn) {
         }
         
     </style>
-    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="../../css/mobile.css">
 </head>
 
 <body>

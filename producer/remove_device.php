@@ -1,5 +1,4 @@
 <?php
-
 if(!isset($_GET["device_id"])){
     die();
 }
@@ -21,8 +20,11 @@ $sql = "DELETE FROM devices WHERE device_id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $device_id);
 
+$home_id = $_GET["house"];
+
+
 if ($stmt->execute()) {
-    header("Location: devices.php");
+    header("Location: devices.php?house=$home_id");
 }
 
 $stmt->close();

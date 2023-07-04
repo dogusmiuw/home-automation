@@ -7,10 +7,11 @@ device_form_toggle = () => {
     formDOM.classList.toggle("d-none");
 }
 
-remove_device = (e) => {
-    let device_id = e.dataset.deviceId;
+remove_device = (device_id, home_id) => {
+    console.log(device_id);
+    console.log(home_id);
 
-    window.location.replace(`remove_device.php?device_id=${device_id}`);
+    window.location.replace(`remove_device.php?house=${home_id}&device_id=${device_id}`);
 
     // $.ajax({
     //     url: `remove_device.php?device_id=${device_id}`,

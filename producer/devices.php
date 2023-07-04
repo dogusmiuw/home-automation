@@ -1,6 +1,16 @@
 <?php include 'layout/_header.php' ?>
 <?php include 'layout/_navbar.php' ?>
+<?php
+$house_sql = "SELECT home_id FROM houses";
+$house_res = $conn->query($house_sql);
+$house_arr = $house_res->fetch_array();
 
+if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $house_arr)){
+    header("Location: home.php");
+}
+
+$_SESSION["home_id"] = $_GET["house"];
+?>
 <div class="container">
     <div class="row container-row mt-5">
         <div class="card"> <!-- main -->
@@ -9,10 +19,10 @@
                 <div class="row mb-3">
                     <div>
                         <a href="#" onclick="device_form_toggle()" class="btn active"
-                            style="background-color: #846545; color: white;"><i class="fa-solid fa-plus"></i> Add
-                            device</a>
+                            style="background-color: #846545; color: white;"><i class="fa-solid fa-plus"></i>
+                             Add device</a>
                     </div>
-                    <form action="?action=add_device" method="post" class="mt-3 mb-3 d-none" id="addDeviceForm">
+                    <form action="?house=<?=$_SESSION["home_id"]?>&action=add_device" method="post" class="mt-3 mb-3 d-none" id="addDeviceForm">
                         <div class="mb-3">
                             <label for="device_type" class="form-label">Device type</label>
                             <select class="form-select" id="device_type" name="device_type">
@@ -26,12 +36,24 @@
                             </select>
                         </div>
                         <div class="mb-3">
+                            <label for="device_name" class="form-label">Device Name</label>
+                            <input type="text" class="form-control" id="device_name" name="device_name"
+                                placeholder="my ring light">
+                        </div>
+                        <div class="mb-3">
                             <label for="room" class="form-label">Select room</label>
                             <select class="form-select" id="room" name="room_id">
                                 <option selected>Select room</option>
-                                <option value="1">Living Room</option>
-                                <option value="2">Kitchen</option>
-                                <option value="3">Bedroom</option>
+                                <?php 
+                                $sql = "SELECT * FROM rooms";
+                                $res = $conn->query($sql);
+                                if ($res->num_rows > 0) {
+                                    while ($row = $res->fetch_assoc()) {
+                                ?>
+                                <option value="<?= $row["room_id"] ?>"><?= $row["room_name"] ?></option>
+                                <?php 
+                                    }}
+                                ?>
                             </select>
                         </div>
                         <div class="mb-3">
@@ -70,7 +92,8 @@
                                             $room_row = $room_result->fetch_assoc();
                                             ?>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)"
+                                                <?= $row["device_name"] ?><br><?= "[".$room_row["room_name"]."]" ?><a href="#" onclick="remove_device(<?= $row['device_id'] ?>, <?= $_SESSION['home_id'] ?>)"
+                                                    data-home-id="<?= $_SESSION["home_id"] ?>"
                                                     data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i
                                                         class="fa-solid fa-minus"></i></a>
                                             </li>
@@ -109,7 +132,8 @@
                                             $room_row = $room_result->fetch_assoc();
                                             ?>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)"
+                                                <?= $row["device_name"] ?><br><?= "[".$room_row["room_name"]."]" ?><a href="#" onclick="remove_device(<?= $row['device_id'] ?>, <?= $_SESSION['home_id'] ?>)"
+                                                    data-home-id="<?= $_SESSION["home_id"] ?>"
                                                     data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i
                                                         class="fa-solid fa-minus"></i></a>
                                             </li>
@@ -148,7 +172,8 @@
                                             $room_row = $room_result->fetch_assoc();
                                             ?>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)"
+                                                <?= $row["device_name"] ?><br><?= "[".$room_row["room_name"]."]" ?><a href="#" onclick="remove_device(<?= $row['device_id'] ?>, <?= $_SESSION['home_id'] ?>)"
+                                                    data-home-id="<?= $_SESSION["home_id"] ?>"
                                                     data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i
                                                         class="fa-solid fa-minus"></i></a>
                                             </li>
@@ -187,7 +212,8 @@
                                             $room_row = $room_result->fetch_assoc();
                                             ?>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)"
+                                                <?= $row["device_name"] ?><br><?= "[".$room_row["room_name"]."]" ?><a href="#" onclick="remove_device(<?= $row['device_id'] ?>, <?= $_SESSION['home_id'] ?>)"
+                                                    data-home-id="<?= $_SESSION["home_id"] ?>"
                                                     data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i
                                                         class="fa-solid fa-minus"></i></a>
                                             </li>
@@ -226,7 +252,8 @@
                                             $room_row = $room_result->fetch_assoc();
                                             ?>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)"
+                                                <?= $row["device_name"] ?><br><?= "[".$room_row["room_name"]."]" ?><a href="#" onclick="remove_device(<?= $row['device_id'] ?>, <?= $_SESSION['home_id'] ?>)"
+                                                    data-home-id="<?= $_SESSION["home_id"] ?>"
                                                     data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i
                                                         class="fa-solid fa-minus"></i></a>
                                             </li>
@@ -265,7 +292,8 @@
                                             $room_row = $room_result->fetch_assoc();
                                             ?>
                                             <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <?= $room_row["room_name"] ?><a href="#" onclick="remove_device(this)"
+                                                <?= $row["device_name"] ?><br><?= "[".$room_row["room_name"]."]" ?><a href="#" onclick="remove_device(<?= $row['device_id'] ?>, <?= $_SESSION['home_id'] ?>)"
+                                                    data-home-id="<?= $_SESSION["home_id"] ?>"
                                                     data-device-id="<?= $row["device_id"] ?>" class="btn btn-danger active"><i
                                                         class="fa-solid fa-minus"></i></a>
                                             </li>
@@ -325,12 +353,29 @@ if (isset($_GET["action"])) {
         $submitted_device_type = $_POST["device_type"];
         $submitted_room_id = $_POST["room_id"];
         $submitted_device_ip = $_POST["ipAddress"];
+        $submitted_device_name = $_POST["device_name"];
+        
+        $_SESSION["house"] = $_GET["house"];
+        $home_id = $_SESSION["house"];
 
-        $sql = "INSERT INTO devices (device_id, device_type, stat, room_id, device_ip)
-                    VALUES (NULL, '$submitted_device_type', 'off', '$submitted_room_id', '$submitted_device_ip')";
-
+        if(empty($submitted_device_ip) || $submitted_device_ip == "" || !isset($submitted_device_ip)){
+            $sql = "INSERT INTO devices (device_id, device_name, device_type, stat, device_ip, room_id, home_id)
+                    VALUES (NULL, '$submitted_device_name','$submitted_device_type','off', NULL, '$submitted_room_id', '$home_id')";
+        }else {
+            $sql = "INSERT INTO devices (device_id, device_name, device_type, stat, device_ip, room_id, home_id)
+                    VALUES (NULL, '$submitted_device_name','$submitted_device_type','off', '$submitted_device_ip', '$submitted_room_id', '$home_id')";
+        }
+        
         if ($conn->query($sql) === TRUE) {
-            echo "<p>New device added.</p>";
+            ?>
+            <script>
+                var path = window.location.pathname;
+                var page = path.split("/").pop();
+                page += "?house="+<?= $_SESSION["home_id"] ?>;
+                // alert( page );
+                window.location.href = page;
+            </script>
+            <?php
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
@@ -341,4 +386,4 @@ if (isset($_GET["action"])) {
 
 
 <script src="../js/device_form.js"></script>
-<?php include 'layout/_footer.php' ?>
+<?php include 'layout/_footer.php'; ?>

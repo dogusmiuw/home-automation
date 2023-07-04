@@ -1,7 +1,17 @@
 <?php include 'layout/_header.php' ?>
-    <?php include 'layout/_navbar.php' ?>
+<?php include 'layout/_navbar.php' ?>
     <?php
-    $sql = "SELECT * FROM houses";
+    $house_sql = "SELECT home_id FROM houses";
+    $house_res = $conn->query($house_sql);
+    $house_arr = $house_res->fetch_array();
+    
+    if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $house_arr)){
+        header("Location: home.php");
+    }
+    $_SESSION["home_id"] = $_GET["house"];
+
+    $home_id = $_SESSION["home_id"];
+    $sql = "SELECT * FROM houses WHERE home_id=$home_id";
     $res = $conn->query($sql);
     $row = $res->fetch_assoc();
     ?>

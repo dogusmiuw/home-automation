@@ -49,7 +49,7 @@
                                 ?>
                                 <div class="col-3">
                                     <div class="card">
-                                        <a href="rooms.php" class="text-decoration-none text-black">
+                                        <a href="rooms.php?house=<?= $row["home_id"] ?>" class="text-decoration-none text-black">
                                             <div class="card-body">
                                                 <h4><?= $row["owner"] ?></h4>
                                                 <p><?= $row["address"] ?><br>
