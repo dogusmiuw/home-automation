@@ -31,7 +31,7 @@
                     <form action="?house=<?=$_SESSION["home_id"]?>&action=add_device" method="post" class="mt-3 mb-3 d-none" id="addDeviceForm">
                         <div class="mb-3">
                             <label for="device_type" class="form-label">Device type</label>
-                            <select class="form-select" id="device_type" name="device_type">
+                            <select class="form-select" id="device_type" name="device_type" required>
                                 <option selected>Select device type</option>
                                 <option value="light">Light</option>
                                 <option value="ac">AC</option>
@@ -43,12 +43,12 @@
                         </div>
                         <div class="mb-3">
                             <label for="device_name" class="form-label">Device Name</label>
-                            <input type="text" class="form-control" id="device_name" name="device_name"
-                                placeholder="my ring light">
+                            <input type="text" pattern="[A-Za-z0-9]+" title="Only letters and numbers are accepted." class="form-control" id="device_name" name="device_name"
+                                placeholder="my ring light" required>
                         </div>
                         <div class="mb-3">
                             <label for="room" class="form-label">Select room</label>
-                            <select class="form-select" id="room" name="room_id">
+                            <select class="form-select" id="room" name="room_id" required>
                                 <option selected>Select room</option>
                                 <?php 
                                 // $home_id = $_SESSION["home_id"];
@@ -65,8 +65,8 @@
                         </div>
                         <div class="mb-3">
                             <label for="ipAddress" class="form-label">Device IP</label>
-                            <input type="text" class="form-control" id="ipAddress" name="ipAddress"
-                                placeholder="ex: 192.168.2.110">
+                            <input type="text" pattern="[0-9.]+" title="Only letters and numbers are accepted." class="form-control" id="ipAddress" name="ipAddress"
+                                placeholder="ex: 192.168.2.110" required>
                         </div>
                         <button type="submit" style="background-color: #846545; color: white;"
                             class="btn submit-btn">Submit</button>

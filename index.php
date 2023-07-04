@@ -158,7 +158,7 @@ if (!$conn) {
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" name="email"
+                        <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" class="form-control" id="email" name="email"
                             placeholder="johndoe@example.com" required>
                     </div>
                     <div class="mb-3">

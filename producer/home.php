@@ -43,17 +43,17 @@
                     <form action="?action=create_house" method="post" class="mt-3 mb-3 d-none" id="addHouseForm">
                         <div class="mb-3">
                             <label for="owner" class="form-label">Owner Name</label>
-                            <input type="text" class="form-control" id="owner" name="owner"
+                            <input type="text" pattern="[A-Za-z]+" title="Only letters are accepted." class="form-control" id="owner" name="owner"
                                 placeholder="Rachel Amber" required>
                         </div>
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" name="address"
+                            <input type="text" pattern="[A-Za-z0-9]+" title="Only letters and numbers are accepted." class="form-control" id="address" name="address"
                                 placeholder="Neverland, Oregon" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" name="email"
+                            <input type="email" pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" class="form-control" id="email" name="email"
                                 placeholder="example@mail.com" required>
                         </div>
                         <div class="mb-3">

@@ -43,7 +43,7 @@
                     <form action="?house=<?=$_SESSION["home_id"]?>&action=add_room" method="post" class="mt-3 mb-3 d-none" id="addRoomForm">
                         <div class="mb-3">
                             <label for="room_name" class="form-label">Room Name</label>
-                            <input type="text" class="form-control" id="room_name" name="room_name"
+                            <input pattern="[A-Za-z0-9]+" title="Only letters and numbers are accepted." type="text" class="form-control" id="room_name" name="room_name"
                                 placeholder="My secret place" required>
                         </div>
                         <button type="submit" style="background-color: #846545; color: white;"
