@@ -1,6 +1,6 @@
 <?php global $page_name;
 
-if($page_name != "About"){
+if($page_name != "About" && $page_name != "Room"){
     
     $house_sql = "SELECT home_id FROM houses";
     $house_res = $conn->query($house_sql);
