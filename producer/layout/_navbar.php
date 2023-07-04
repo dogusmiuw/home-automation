@@ -35,6 +35,9 @@ if($page_name != "About" && $page_name != "Room"){
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav justify-content-around" style="width: 100% !important;">
                 <li class="nav-item">
+                    <a style="border: 1px solid white;" class="nav-link fs-3 <?= $page_name == 'Home' ? 'active' : '' ?>" href="home.php">Back to Houses</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link fs-3 <?= $page_name == 'Rooms' ? 'active' : '' ?>" href="rooms.php?house=<?= $_SESSION["home_id"] ?>">Rooms</a>
                 </li>
                 <li class="nav-item">
