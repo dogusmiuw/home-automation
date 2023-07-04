@@ -1,15 +1,21 @@
 <?php include 'layout/_header.php' ?>
 <?php include 'layout/_navbar.php' ?>
 <?php
-$house_sql = "SELECT home_id FROM houses";
-$house_res = $conn->query($house_sql);
-$house_arr = $house_res->fetch_array();
+// $house_sql = "SELECT home_id FROM houses";
+// $house_res = $conn->query($house_sql);
 
-if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $house_arr)){
-    header("Location: home.php");
-}
+// $rows = mysqli_fetch_all ($house_res, MYSQLI_ASSOC);
+// $arr = array();
 
-$_SESSION["home_id"] = $_GET["house"];
+// for($i = 0; $i < count($rows); $i++) {
+//     array_push($arr, $rows[$i]["home_id"]);
+// }
+
+// if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $arr)){
+//     header("Location: home.php");
+// }
+
+// $_SESSION["home_id"] = $_GET["house"];
 ?>
 <div class="container">
     <div class="row container-row mt-5">
@@ -45,7 +51,8 @@ $_SESSION["home_id"] = $_GET["house"];
                             <select class="form-select" id="room" name="room_id">
                                 <option selected>Select room</option>
                                 <?php 
-                                $sql = "SELECT * FROM rooms";
+                                $home_id = $_SESSION["home_id"];
+                                $sql = "SELECT * FROM rooms WHERE home_id = $home_id";
                                 $res = $conn->query($sql);
                                 if ($res->num_rows > 0) {
                                     while ($row = $res->fetch_assoc()) {
@@ -75,7 +82,7 @@ $_SESSION["home_id"] = $_GET["house"];
 
                                 $device_type = "light";
 
-                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type' AND home_id = $home_id";
 
                                 // Sorguyu çalıştır ve sonuçları al
                                 $result = $conn->query($sql);
@@ -115,7 +122,7 @@ $_SESSION["home_id"] = $_GET["house"];
 
                                 $device_type = "ac";
 
-                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type' AND home_id = $home_id";
 
                                 // Sorguyu çalıştır ve sonuçları al
                                 $result = $conn->query($sql);
@@ -155,7 +162,7 @@ $_SESSION["home_id"] = $_GET["house"];
 
                                 $device_type = "tv";
 
-                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type' AND home_id = $home_id";
 
                                 // Sorguyu çalıştır ve sonuçları al
                                 $result = $conn->query($sql);
@@ -195,7 +202,7 @@ $_SESSION["home_id"] = $_GET["house"];
 
                                 $device_type = "window";
 
-                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type' AND home_id = $home_id";
 
                                 // Sorguyu çalıştır ve sonuçları al
                                 $result = $conn->query($sql);
@@ -235,7 +242,7 @@ $_SESSION["home_id"] = $_GET["house"];
 
                                 $device_type = "oven";
 
-                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type' AND home_id = $home_id";
 
                                 // Sorguyu çalıştır ve sonuçları al
                                 $result = $conn->query($sql);
@@ -275,7 +282,7 @@ $_SESSION["home_id"] = $_GET["house"];
 
                                 $device_type = "other";
 
-                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type'";
+                                $sql = "SELECT * FROM devices WHERE device_type = '$device_type' AND home_id = $home_id";
 
                                 // Sorguyu çalıştır ve sonuçları al
                                 $result = $conn->query($sql);

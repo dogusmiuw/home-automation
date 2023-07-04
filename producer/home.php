@@ -34,6 +34,64 @@
             <div class="card"> <!-- main -->
                 <div class="card-body">
                     <h1>Houses</h1>
+                    <div class="row">
+                    <div>
+                        <a href="#" onclick="house_form_toggle()" class="btn active"
+                            style="background-color: #846545; color: white;"><i class="fa-solid fa-plus"></i>
+                             Create new house</a>
+                    </div>
+                    <form action="?action=create_house" method="post" class="mt-3 mb-3 d-none" id="addHouseForm">
+                        <div class="mb-3">
+                            <label for="owner" class="form-label">Owner Name</label>
+                            <input type="text" class="form-control" id="owner" name="owner"
+                                placeholder="Rachel Amber" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address"
+                                placeholder="Neverland, Oregon" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="example@mail.com" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="tel" class="form-label">Phone</label>
+                            <input type="tel" class="form-control" id="tel" name="tel"
+                                placeholder="05---" required>
+                        </div>
+                        <button type="submit" style="background-color: #846545; color: white;"
+                            class="btn submit-btn">Submit</button>
+                    </form>
+                </div>
+                <div class="row mb-3">
+                    <div>
+                        <a href="#" onclick="del_house_form_toggle()" class="btn active btn-danger">
+                        <i class="fa-solid fa-minus"></i>
+                             Remove house</a>
+                    </div>
+                    <form action="?action=del_house" method="post" class="mt-3 mb-3 d-none" id="delHouseForm">
+                        <div class="mb-3">
+                            <label for="home_id" class="form-label">Select house to remove</label>
+                            <select class="form-select" id="home_id" name="home_id">
+                                <option selected>Select house</option>
+                                <?php 
+                                $sql = "SELECT home_id, owner FROM houses";
+                                $res = $conn->query($sql);
+                                if ($res->num_rows > 0) {
+                                    while ($row = $res->fetch_assoc()) {
+                                ?>
+                                <option value="<?= $row["home_id"] ?>"><?= $row["owner"] ?></option>
+                                <?php 
+                                    }}
+                                ?>
+                            </select>
+                        </div>
+                        <button type="submit" style="background-color: #846545; color: white;"
+                            class="btn submit-btn">Submit</button>
+                    </form>
+                </div>
                     <div class="row mb-3">
                         <?php
                         $sql = "SELECT * FROM houses";
@@ -72,5 +130,42 @@
         </div>
     </div>
 </div>
+
+<?php
+
+if (isset($_GET["action"])) {
+    if ($_GET['action'] == 'create_house') {
+        $owner = $_POST["owner"];
+        $address = $_POST["address"];
+        $email = $_POST["email"];
+        $tel = $_POST["tel"];
+
+        $c1 = "SET FOREIGN_KEY_CHECKS = 0";
+        $conn->query($c1);
+        $sql = "INSERT INTO houses (home_id, owner, address, issues, email, tel)
+                VALUES (NULL, '$owner', '$address', 0, '$email', '$tel')";
+        $c2 = "SET FOREIGN_KEY_CHECKS = 1";
+
+        if ($conn->query($sql) === TRUE) {
+            $conn->query($c2);
+            ?>
+            <script>
+                var path = window.location.pathname;
+                var page = path.split("/").pop();
+                // alert( page );
+                window.location.href = page;
+            </script>
+            <?php
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    } else if ($_GET['action'] == 'del_house') {
+
+    }
+}
+
+?>
+
+<script src="../js/house_form.js"></script>
 
 <?php include 'layout/_footer.php' ?>

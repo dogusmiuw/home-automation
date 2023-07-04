@@ -2,15 +2,21 @@
 <?php include 'layout/_navbar.php' ?>
 <?php
 
-$house_sql = "SELECT home_id FROM houses";
-$house_res = $conn->query($house_sql);
-$house_arr = $house_res->fetch_array();
+// $house_sql = "SELECT home_id FROM houses";
+// $house_res = $conn->query($house_sql);
 
-if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $house_arr)){
-    header("Location: home.php");
-}
+// $rows = mysqli_fetch_all ($house_res, MYSQLI_ASSOC);
+// $arr = array();
 
-$_SESSION["home_id"] = $_GET["house"];
+// for($i = 0; $i < count($rows); $i++) {
+//     array_push($arr, $rows[$i]["home_id"]);
+// }
+
+// if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $arr)){
+//     header("Location: home.php");
+// }
+
+// $_SESSION["home_id"] = $_GET["house"];
 ?>
 <style>
     .col-3.mb-3 > a > .card:hover{
@@ -46,8 +52,7 @@ $_SESSION["home_id"] = $_GET["house"];
                 </div>
                 <div class="row mb-3">
                     <div>
-                        <a href="#" onclick="del_room_form_toggle()" class="btn active"
-                            style="background-color: #846545; color: white;"><i class="fa-solid fa-plus"></i>
+                        <a href="#" onclick="del_room_form_toggle()" class="btn active btn-danger"><i class="fa-solid fa-minus"></i>
                              Remove room</a>
                     </div>
                     <form action="?house=<?=$_SESSION["home_id"]?>&action=del_room" method="post" class="mt-3 mb-3 d-none" id="delRoomForm">

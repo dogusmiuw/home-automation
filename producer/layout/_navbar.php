@@ -1,9 +1,22 @@
 <?php global $page_name;
 
 if($page_name != "About"){
-    if(!empty($_GET["house"]) || !isset($_GET["house"]) || $_GET["house"] != "") {
-        $_SESSION["home_id"] = $_GET["house"];
+    
+    $house_sql = "SELECT home_id FROM houses";
+    $house_res = $conn->query($house_sql);
+    
+    $rows = mysqli_fetch_all ($house_res, MYSQLI_ASSOC);
+    $arr = array();
+
+    for($i = 0; $i < count($rows); $i++) {
+        array_push($arr, $rows[$i]["home_id"]);
     }
+    
+    if(!isset($_GET["house"]) || empty($_GET["house"]) || !in_array($_GET["house"], $arr)){
+        header("Location: home.php");
+    }
+    
+    $_SESSION["home_id"] = $_GET["house"];
 }
 
 ?>
