@@ -61,7 +61,8 @@
                             <select class="form-select" id="room_id" name="room_id">
                                 <option selected>Select room</option>
                                 <?php 
-                                $sql = "SELECT * FROM rooms";
+                                // $home_id = $_SESSION["home_id"];
+                                $sql = "SELECT * FROM rooms WHERE home_id = $home_id";
                                 $res = $conn->query($sql);
                                 if ($res->num_rows > 0) {
                                     while ($row = $res->fetch_assoc()) {
@@ -79,7 +80,7 @@
 
                 <div class="row mb-3">
                 <?php
-                        $home_id = $_SESSION["home_id"];
+                        // $home_id = $_SESSION["home_id"];
                         $sql = "SELECT * FROM rooms WHERE home_id=$home_id";
                         // Sorguyu çalıştır ve sonuçları al
                         $result = $conn->query($sql);
@@ -155,7 +156,7 @@
 if (isset($_GET["action"])) {
     if ($_GET['action'] == 'add_room') {
         $room_name = $_POST["room_name"];
-        $home_id = $_SESSION["house"];
+        // $home_id = $_SESSION["home_id"];
         
         $rand_temp = rand(16,25);
 
@@ -179,8 +180,7 @@ if (isset($_GET["action"])) {
             
             $room_id= $_POST["room_id"];
             
-            $_SESSION["house"] = $_GET["house"];
-            $home_id = $_SESSION["house"];
+            // $home_id = $_SESSION["home_id"];
 
             $c1 = "SET FOREIGN_KEY_CHECKS = 0";
             $conn->query($c1);

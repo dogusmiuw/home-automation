@@ -17,6 +17,7 @@ if($page_name != "About"){
     }
     
     $_SESSION["home_id"] = $_GET["house"];
+    $home_id = $_SESSION["home_id"];
 }
 
 ?>

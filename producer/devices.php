@@ -51,7 +51,7 @@
                             <select class="form-select" id="room" name="room_id">
                                 <option selected>Select room</option>
                                 <?php 
-                                $home_id = $_SESSION["home_id"];
+                                // $home_id = $_SESSION["home_id"];
                                 $sql = "SELECT * FROM rooms WHERE home_id = $home_id";
                                 $res = $conn->query($sql);
                                 if ($res->num_rows > 0) {
@@ -362,8 +362,7 @@ if (isset($_GET["action"])) {
         $submitted_device_ip = $_POST["ipAddress"];
         $submitted_device_name = $_POST["device_name"];
         
-        $_SESSION["house"] = $_GET["house"];
-        $home_id = $_SESSION["house"];
+        // $home_id = $_SESSION["home_id"];
 
         if(empty($submitted_device_ip) || $submitted_device_ip == "" || !isset($submitted_device_ip)){
             $sql = "INSERT INTO devices (device_id, device_name, device_type, stat, device_ip, room_id, home_id)
