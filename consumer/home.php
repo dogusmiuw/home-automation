@@ -247,8 +247,19 @@
       <div onload="onpageload()" class="switches3">
         <fieldset class="switchess3">
           <h2 style="top: -50px">The Super Switch!</h2>
-          <a onClick="s6()" class="superBtn">ON/OFF All Switch</a>
+          <a href="button.php" class="superBtn">
+           <?php 
+           if($living["lightStatus"]==1){  
+            echo "OFF";
+           }
+           else{
+            echo "ON";
+           }
+           
+           ?>
+           All Switch</a>
         </fieldset>
+        
       </div>
     </div>
     <div class="columnss3">
@@ -378,6 +389,7 @@
   <script src="js/babel.js"></script>
   <script src="js/clock.js"></script>
   <script src="js/switch.js"></script>
+
 </body>
 
 </html>

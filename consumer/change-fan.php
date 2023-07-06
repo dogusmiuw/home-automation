@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $fan = $queryFan->fetch(PDO::FETCH_ASSOC);
     if ($fan['fanStatus'] == 1) {
         $newFanStatus = 0;
-        $roomId = 1;
+        $roomId = 1; 
         $handle = $db->prepare('UPDATE temperature SET fanStatus = :newFanStatus WHERE roomId = :roomId');
         $handle->bindParam(':newFanStatus', $newFanStatus);
         $handle->bindParam(':roomId', $roomId);
