@@ -252,87 +252,51 @@
       </div>
     </div>
     <div class="columnss3">
+      <?php
+      $sqlalert=$db->prepare("SELECT * FROM alerts ORDER BY alertId DESC LIMIT 4");
+      $sqlalert->execute();
+      $alerts=$sqlalert->fetchAll(PDO::FETCH_ASSOC);
+      foreach ($alerts as $alert) {
+        
+      
+      ?>
       <div class="warnings">
-        <div class="notification green">
+        <div class="notification <?php echo $alert["alertGenre"]?>">
           <div class="info">
-          <?php
-              $sql = "SELECT * FROM `alerts` where `alertId` = 1";
-              $queryAlerts = $db->prepare($sql);
-              $queryAlerts->execute();
-              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
-
-              ?>
               <h1>
               <?php 
-               echo $alerts["alertText"];
+               echo $alert["alertText"];
               ?>
             
           </div>
           <div class="icon">
-            <i class="fa-solid fa-check"></i>
+            <?php 
+            
+              if($alert["alertGenre"]=="green"){
+                echo "<i class='fa-solid fa-check'></i>";
+              }
+              elseif($alert["alertGenre"]=="red"){
+                echo "<i class='fa-solid fa-circle-xmark fa-beat' style='color: #ffffff'></i>";
+              }
+              elseif($alert["alertGenre"]=="blue"){
+                echo "<i class='fa-solid fa-triangle-exclamation fa-flip'></i>";
+              }
+              else if($alert["alertGenre"]=="purple"){
+                echo "<i class='fa-regular fa-bell fa-shake'></i>";
+              }
+              else{
+                echo "<i class='fa-regular fa-question'></i>";
+              }
+            ?>
+            
           </div>
         </div>
       </div>
-      <div class="warnings">
-        <div class="notification red">
-          <div class="info">
-          <?php
-              $sql = "SELECT * FROM `alerts` where `alertId` = 2";
-              $queryAlerts = $db->prepare($sql);
-              $queryAlerts->execute();
-              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
-
-              ?>
-              <h1>
-              <?php 
-               echo $alerts["alertText"];
-              ?>
-          </div>
-          <div class="icon">
-            <i class="fa-solid fa-circle-xmark fa-beat" style="color: #ffffff"></i>
-          </div>
-        </div>
-      </div>
-      <div class="warnings">
-        <div class="notification blue">
-          <div class="info">
-          <?php
-              $sql = "SELECT * FROM `alerts` where `alertId` = 3";
-              $queryAlerts = $db->prepare($sql);
-              $queryAlerts->execute();
-              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
-
-              ?>
-              <h1>
-              <?php 
-                echo $alerts["alertText"];
-              ?>
-          </div>
-          <div class="icon">
-            <i class="fa-solid fa-triangle-exclamation fa-flip"></i>
-          </div>
-        </div>
-      </div>
-      <div class="warnings">
-        <div class="notification purple">
-          <div class="info">
-          <?php
-              $sql = "SELECT * FROM `alerts` where `alertId` = 4";
-              $queryAlerts = $db->prepare($sql);
-              $queryAlerts->execute();
-              $alerts = $queryAlerts->fetch(PDO::FETCH_ASSOC);
-
-              ?>
-              <h1>
-              <?php 
-               echo $alerts["alertText"];
-              ?>
-          </div>
-          <div class="icon">
-            <i class="fa-regular fa-bell fa-shake"></i>
-          </div>
-        </div>
-      </div>
+      <?php } ?>
+      
+      
+      
+      
       <div class="enterance">
         <h4>Home check-in Time</h4>
         <div class="person firstP">
