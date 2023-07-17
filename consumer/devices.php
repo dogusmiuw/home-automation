@@ -209,19 +209,30 @@ session_start();
                 </table>
               </div>
             </div>
-            <div id="DispRoomTemp">T : 17 °C </div>
+            <?php 
+            $sqltemp1=$db->prepare("SELECT * FROM TEMPERATURE WHERE roomID=1");
+            $sqltemp1->execute();
+            $temps=$sqltemp1->fetch(PDO::FETCH_ASSOC);
+            ?>
+            <div id="DispRoomTemp">T : <?php echo $temps["roomTemp"] ?>°C </div>
             <div id="DispTempBoxL" class="DispTempBox">
-              <div id="DispTempL" class="DispTemp">16</div>
+              <div id="DispTempL" class="DispTemp"><?php echo $temps["fanTemp"] ?></div>
               <div id="TempUnit">°C </div>
             </div>
           </div>
+          
+            
           <div class="AC_Buttons_box">
-            <button class="AC_Button is_Power " id="ananan" onclick="AC_B_PowerL()" type="submit" form="power"
-              name="power">O/I</button>
-            <button class="AC_Button" onclick="AC_B_UPL()" type="submit">&#9650 </button>
-            <button class="AC_Button" onclick="AC_B_FANL()">FAN </button>
-            <button class="AC_Button" onclick="AC_B_DOWNL()">&#9660 </button>
-          </div>
+            <button type="submit" class="AC_Button is_Power " id="ananan" onclick="AC_B_PowerL()" type="button" 
+              name="power" >O/I</button>
+              </div>
+              <form action="operations.php" method="post">
+              <div class="AC_Buttons_box">
+                <input type="hidden" name="fanvalue" value="<?php echo $temps["fanTemp"] ?>">
+            <button class="AC_Button" onclick="AC_B_UPL()" type="submit" name="up">&#9650 </button>
+            <button class="AC_Button" onclick="AC_B_FANL()" type="submit" name="fan" >FAN </button>
+            <button class="AC_Button" onclick="AC_B_DOWNL()" type="submit" name="down">&#9660 </button>
+          </div></form>
         </div>
         <div class="lights livLights">
           <h3>Light</h3>
@@ -350,11 +361,16 @@ session_start();
             </div>
           </div>
           <div class="AC_Buttons_box">
-            <button class="AC_Button is_Power" onclick="AC_B_PowerB()">O/I</button>
-            <button class="AC_Button" onclick="AC_B_UPB()">&#9650 </button>
-            <button class="AC_Button" onclick="AC_B_FANB()">FAN </button>
-            <button class="AC_Button" onclick="AC_B_DOWNB()">&#9660 </button>
-          </div>
+            <button type="submit" class="AC_Button is_Power " id="ananan" onclick="AC_B_PowerB()" type="button" 
+              name="power" >O/I</button>
+              </div>
+              <form action="operations.php" method="post">
+              <div class="AC_Buttons_box">
+                <input type="hidden" name="fanvalue1" value="<?php echo $temps["fanTemp"] ?>">
+            <button class="AC_Button" onclick="AC_B_UPB()" type="submit" name="up1">&#9650 </button>
+            <button class="AC_Button" onclick="AC_B_FANB()" type="submit" name="fan1" >FAN </button>
+            <button class="AC_Button" onclick="AC_B_DOWNB()" type="submit" name="down1">&#9660 </button>
+          </div></form>
         </div>
         <div class="lights livLights">
           <h3>Light</h3>
