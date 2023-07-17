@@ -129,7 +129,7 @@ if (!$conn) {
         if (in_array($email, $arr)) {
             $status = "<p class='text-danger'>"."This e-mail has already been used."."</p>";
         } else {
-            $sql = "INSERT INTO users VALUES(NULL, ?, ?, ?, ?);";
+            $sql = "INSERT INTO users VALUES(NULL, ?, ?, ?, ?, NULL);";
 
             $stmt = $conn->prepare($sql);
 
